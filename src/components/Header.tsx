@@ -11,7 +11,9 @@ const Header = () => {
         MeetUpNow
       </Link>
 
-      <User size={22} strokeWidth="2px" />
+      <Link to="/login">
+        <User size={22} strokeWidth="2px" />
+      </Link>
     </div>
   );
 };
