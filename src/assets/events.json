@@ -1,0 +1,102 @@
+[
+  {
+    "id": "1",
+    "title": "Music Concert: Rock Legends",
+    "description": "Join us for an unforgettable night with some of the biggest rock legends of all time. Live music, great vibes, and an epic crowd.",
+    "datetime": "2024-12-05T19:30:00",
+    "location": "Madison Square Garden, NYC",
+    "image": "https://www.beat-magazine.co.uk/wp-content/uploads/2024/04/rock-music-history.jpeg",
+    "status": "live",
+    "interestedCount": 1250
+  },
+  {
+    "id": "2",
+    "title": "Tech Conference 2024",
+    "description": "Discover the latest trends in technology and innovation at this year’s Tech Innovations Conference. Keynotes by industry leaders and hands-on workshops.",
+    "datetime": "2024-12-10T09:00:00",
+    "location": "Silicon Valley Convention Center, California",
+    "image": "https://miro.medium.com/v2/resize:fit:1400/1*sPBpIz2pxw6AydB2LyDh8w.png",
+    "status": "live",
+    "interestedCount": 800
+  },
+  {
+    "id": "3",
+    "title": "Food Truck Festival",
+    "description": "A festival celebrating the best food trucks in the city. Enjoy gourmet food, live music, and a fun atmosphere. Bring your friends and family!",
+    "datetime": "2024-11-25T11:00:00",
+    "location": "Central Park, New York",
+    "image": "https://www.copleyfra.com/uploads/5/2/4/0/5240965/header_images/1708358155.jpg",
+    "status": "expired",
+    "interestedCount": 520
+  },
+  {
+    "id": "4",
+    "title": "Yoga for Beginners Workshop",
+    "description": "A calming and introductory workshop to yoga. Learn the basics of breathing, stretching, and meditation in a peaceful environment.",
+    "datetime": "2024-12-12T10:00:00",
+    "location": "Green Lotus Yoga Studio, Los Angeles",
+    "image": "https://images.squarespace-cdn.com/content/v1/5d07a02a9941ab0001100b96/0ed208cc-c7e1-4137-b3a0-67143804a845/beginners+yoga+workshop.PNG",
+    "status": "live",
+    "interestedCount": 150
+  },
+  {
+    "id": "5",
+    "title": "Christmas Charity Gala",
+    "description": "Join us for an elegant evening of fine dining, music, and fundraising for charity. All proceeds go to children’s hospitals.",
+    "datetime": "2024-12-07T19:30:00",
+    "location": "The Ritz-Carlton, Los Angeles",
+    "image": "https://blog.toornament.com/wp-content/uploads/2019/12/1132.jpg",
+    "status": "live",
+    "interestedCount": 320
+  },
+  {
+    "id": "6",
+    "title": "Art Exhibition: Future Visions",
+    "description": "Explore contemporary art at this unique exhibition featuring the works of emerging artists who are redefining art for the future.",
+    "datetime": "2024-11-18T17:00:00",
+    "location": "Modern Art Gallery, Chicago",
+    "image": "https://www.mori.art.museum/files/exhibitions/2019/08/26/future_art_3.jpg",
+    "status": "canceled",
+    "interestedCount": 180
+  },
+  {
+    "id": "7",
+    "title": "Virtual Reality Gaming Tournament",
+    "description": "Compete in the first-ever global Virtual Reality gaming tournament. Test your skills and win amazing prizes!",
+    "datetime": "2024-12-15T14:00:00",
+    "location": "Online (Streaming on Twitch)",
+    "image": "https://static.vecteezy.com/system/resources/thumbnails/049/157/863/original/pro-cyber-sport-gamer-relaxing-playing-games-using-vr-headset-late-night-virtual-shooter-game-championship-in-cyberspace-esports-player-performing-on-pc-during-gaming-tournament-video.jpg",
+    "status": "live",
+    "interestedCount": 4300
+  },
+  {
+    "id": "8",
+    "title": "Outdoor Movie Night: The Lion King",
+    "description": "Watch the classic animated film under the stars! Bring a blanket, your loved ones, and enjoy a great outdoor cinema experience.",
+    "datetime": "2024-11-22T19:00:00",
+    "location": "Sunset Park, Brooklyn",
+    "image": "https://iamthemaven.com/wp-content/uploads/2017/08/228463C10a-lk_ks17p1.jpg",
+    "status": "expired",
+    "interestedCount": 250
+  },
+  {
+    "id": "9",
+    "title": "Holiday Craft Market",
+    "description": "Shop for unique handmade crafts, ornaments, and gifts just in time for the holiday season. Support local artisans and find that perfect gift!",
+    "datetime": "2024-12-03T09:00:00",
+    "location": "Downtown Arts District, Los Angeles",
+    "image": "https://hagadone.media.clients.ellingtoncms.com/img/photos/2023/11/13/Craft_fairs_t1170.jpg?5cc718665ab672dba93d511ab4c682bb370e5f86",
+    "status": "live",
+    "interestedCount": 600
+  },
+  {
+    "id": "10",
+    "title": "International Dance Festival",
+    "description": "A celebration of global dance styles! Experience performances and workshops from top dancers around the world.",
+    "datetime": "2024-12-17T16:00:00",
+    "location": "Grand Theater, San Francisco",
+    "image": "https://www.kalamatamediterraneanvillas.gr/images/destinations/cultural-agenda/jul-intro-kalamata-international-dance-festival.jpg",
+    "status": "canceled",
+    "interestedCount": 750
+  }
+]
