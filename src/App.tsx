@@ -1,11 +1,12 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import EventList from './components/EventList';
+import Header from './components/Header';
 
 function App() {
   return (
     <div>
-      <header>I am header</header>
+      <Header></Header>
       {/* <ul>
         <li>
           <Link to="/">Home</Link>
