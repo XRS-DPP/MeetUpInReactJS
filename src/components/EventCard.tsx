@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { format } from 'date-fns';
 
 type Props = {
   event: {
@@ -20,7 +21,7 @@ export const EventCard = ({ event, index }: Props) => {
       <div className="p-3 w-full border-b-2 border-b-gray-200 ">
         <div key={index} className="flex flex-row items-start">
           <div className="flex-1">
-            <p>{event.datetime}</p>
+            <p>{format(new Date(event.datetime), 'EEEE, d LLL H:00')}</p>
             <p>{event.title}</p>
             <p>{event.location}</p>
           </div>
