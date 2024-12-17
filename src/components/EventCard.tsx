@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
+import { Bookmark, Share } from 'lucide-react';
 
 type Props = {
   event: {
@@ -22,7 +23,7 @@ export const EventCard = ({ event, index }: Props) => {
         <div key={index} className="flex flex-row items-start">
           <div className="flex-1">
             <p>{format(new Date(event.datetime), 'EEEE, d LLL H:00')}</p>
-            <p>{event.title}</p>
+            <p className="font-semibold">{event.title}</p>
             <p>{event.location}</p>
           </div>
 
@@ -31,6 +32,12 @@ export const EventCard = ({ event, index }: Props) => {
             alt="event image"
             className="ml-2 w-[36%] aspect-video hover:aspect-square"
           ></img>
+        </div>
+        {/*footer*/}
+        <div className="flex gap-2 mt-3">
+          <p className="mr-auto text-gray-600">{event.interestedCount} going</p>
+          <Bookmark size={20} color="gray"></Bookmark>
+          <Share size={20} color="gray" />
         </div>
       </div>
     </Link>
