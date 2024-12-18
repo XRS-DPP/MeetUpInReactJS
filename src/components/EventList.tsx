@@ -5,7 +5,7 @@ const EventList = () => {
   return (
     <>
       {events.map((event, index) => {
-        return <EventCard event={event} index={index} />;
+        return <EventCard event={event} index={index} key={index} />;
       })}
     </>
   );
