@@ -8,14 +8,23 @@ const EventPage = () => {
   else
     return (
       <>
-        <img
-          src={event.image}
-          alt="event image"
-          className="ml-2 w-[36%] aspect-video hover:aspect-square"
-        ></img>
-        <p className="font-semibold">{event.title}</p>
-        <p>{event?.description}</p>
-        <p>{event.location}</p>
+        <div className="p-2">
+          <img
+            src={event.image}
+            alt="event image"
+            className="ml-2 w-[36%] aspect-video hover:aspect-square"
+          ></img>
+          <p className="font-semibold">{event.title}</p>
+          <p>{event?.description}</p>
+          <p>{event.location}</p>
+          <button
+            type="button"
+            onClick={() => console.log('button')}
+            className="bg-secodary p-4 rounded-md"
+          >
+            Add Event
+          </button>
+        </div>
       </>
     );
 };
