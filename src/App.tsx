@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import EventList from './components/EventList';
-
+import EventPage from './components/EventPage';
 
 function App() {
   return (
