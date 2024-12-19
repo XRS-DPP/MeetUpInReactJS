@@ -6,7 +6,6 @@ import Modal from './Modal';
 
 const EventPage = () => {
   const { id } = useParams();
-  const [joined, setJoined] = useState<Boolean>(false);
   const [confirmGoing, setConfirmGoing] = useState<Boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
   console.log(confirmGoing);
