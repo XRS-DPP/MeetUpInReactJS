@@ -6,15 +6,17 @@ import Modal from './Modal';
 
 const EventPage = () => {
   const { id } = useParams();
-  const [joined, setJoined] = useState<Boolean>(false);
-
+  const [confirmGoing, setConfirmGoing] = useState<Boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
+  console.log(confirmGoing);
+
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
     email: '',
     confirmEmail: '',
   });
+
   const gapi = window.gapi;
   const CLIENT_ID =
     '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
@@ -24,6 +26,7 @@ const EventPage = () => {
   ];
   const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
+  /*
   const handleClick = () => {
     gapi.load('client:auth2', () => {
       console.log('loaded client');
@@ -94,6 +97,7 @@ const EventPage = () => {
         });
     });
   };
+  */
 
   const event = events.find((item) => item.id === id);
   if (!event) return <>Event not found</>;
@@ -114,17 +118,19 @@ const EventPage = () => {
             {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
           </p>
         </div>
-        <div>
-          <button>Delete</button>
-          <button>Update</button>
-        </div>
-        <button
-          type="button"
-          onClick={() => setIsModalOpen(true)}
-          className="bg-secodary text-white font-semibold text-s py-4 rounded-xl "
-        >
-          Join & RSVP
-        </button>
+
+        {confirmGoing ? (
+          <p className="text-xs mt-2 text-orange-600">You are going!</p>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl "
+          >
+            Join & RSVP
+          </button>
+        )}
+
         <button
           type="button"
           onClick={() => handleClick()}
@@ -138,6 +144,7 @@ const EventPage = () => {
             user={user}
             setUser={setUser}
             setIsModalOpen={setIsModalOpen}
+            setConfirmGoing={setConfirmGoing}
           ></Modal>
         )}
       </div>
