@@ -18,6 +18,11 @@ type Props = {
 };
 
 const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
+  const handleChange =
+    (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      setUser({ ...user, [field]: e.target.value });
+    };
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 w-full h-full bg-white z-1000">
@@ -36,13 +41,13 @@ const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
           <input
             placeholder="First Name"
             value={user.firstName}
-            onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+            onChange={handleChange('firstName')}
             className="border-2 rounded-md p-3 flex-1"
           ></input>
           <input
             placeholder="Last Name"
             value={user.lastName}
-            onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+            onChange={handleChange('lastName')}
             className="border-2 rounded-md p-3 flex-1"
           ></input>
           {/* </div> */}
@@ -51,7 +56,7 @@ const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
             type="email"
             placeholder="Email"
             value={user.email}
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
+            onChange={handleChange('email')}
             className="border-2 rounded-md p-3"
           ></input>
 
@@ -59,10 +64,13 @@ const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
             type="email"
             placeholder="Confirm Email"
             value={user.confirmEmail}
-            onChange={(e) => setUser({ ...user, confirmEmail: e.target.value })}
+            onChange={handleChange('confirmEmail')}
             className="border-2 rounded-md p-3"
           ></input>
-          <button className="mt-10 p-3 bg-secodary text-white text-s rounded-md">
+          <button
+            onClick={() => setIsModalOpen(false)}
+            className="mt-10 p-3 bg-secodary text-white text-s rounded-md"
+          >
             Confirm
           </button>
           {user.email &&
