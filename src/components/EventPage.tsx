@@ -1,8 +1,20 @@
 import { useParams } from 'react-router-dom';
 import events from '../assets/events.json';
 import { format } from 'date-fns';
+import { useState } from 'react';
+import Modal from './Modal';
+
 const EventPage = () => {
   const { id } = useParams();
+  const [joined, setJoined] = useState<Boolean>(false);
+
+  const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    confirmEmail: '',
+  });
   const gapi = window.gapi;
   const CLIENT_ID =
     '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
@@ -108,11 +120,26 @@ const EventPage = () => {
         </div>
         <button
           type="button"
+          onClick={() => setIsModalOpen(true)}
+          className="bg-secodary text-white font-semibold text-s py-4 rounded-xl "
+        >
+          Join & RSVP
+        </button>
+        <button
+          type="button"
           onClick={() => handleClick()}
           className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-3 left-2 right-2"
         >
-          Add Event
+          Add Event To Calendar
         </button>
+
+        {isModalOpen && (
+          <Modal
+            user={user}
+            setUser={setUser}
+            setIsModalOpen={setIsModalOpen}
+          ></Modal>
+        )}
       </div>
     );
 };
