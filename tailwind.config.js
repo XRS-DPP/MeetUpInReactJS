@@ -8,6 +8,13 @@ export default {
         secodary: '#219EBC',
         background: '#EDEDE9',
       },
+      //3rem = 48px
+      fontSize: {
+        xxs: '0.75rem',
+        xs: '1rem',
+        s: '1.15rem',
+        m: '1.8rem',
+      },
     },
   },
   plugins: [],
