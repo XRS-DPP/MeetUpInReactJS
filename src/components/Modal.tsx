@@ -15,9 +15,10 @@ type Props = {
   };
   setUser: React.Dispatch<React.SetStateAction<User>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<Boolean>>;
+  setConfirmGoing: React.Dispatch<React.SetStateAction<Boolean>>;
 };
 
-const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
+const Modal = ({ user, setIsModalOpen, setUser, setConfirmGoing }: Props) => {
   const handleChange =
     (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
       setUser({ ...user, [field]: e.target.value });
@@ -40,7 +41,10 @@ const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
         <div className="w-[100%]  p-3">
           <form
             className="flex flex-col gap-3"
-            onSubmit={() => console.log('submit')}
+            onSubmit={(e) => {
+              e.preventDefault();
+              setIsModalOpen(false), setConfirmGoing(true);
+            }}
           >
             <input
               placeholder="First Name"
