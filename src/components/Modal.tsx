@@ -33,49 +33,59 @@ const Modal = ({ user, setIsModalOpen, setUser }: Props) => {
           <X className="size=16px" strokeWidth={1.25} />
         </button>
 
-        <div className="w-[100%] flex flex-col gap-3 p-3">
-          <h2 className="mt-10 mb-10 text-center text-primary font-semibold text-m">
-            Register Attendance
-          </h2>
-          {/* <div className="w-full flex flex-row gap-2 bg-gray-500 "> */}
-          <input
-            placeholder="First Name"
-            value={user.firstName}
-            onChange={handleChange('firstName')}
-            className="border-2 rounded-md p-3 flex-1"
-          ></input>
-          <input
-            placeholder="Last Name"
-            value={user.lastName}
-            onChange={handleChange('lastName')}
-            className="border-2 rounded-md p-3 flex-1"
-          ></input>
-          {/* </div> */}
-
-          <input
-            type="email"
-            placeholder="Email"
-            value={user.email}
-            onChange={handleChange('email')}
-            className="border-2 rounded-md p-3"
-          ></input>
-
-          <input
-            type="email"
-            placeholder="Confirm Email"
-            value={user.confirmEmail}
-            onChange={handleChange('confirmEmail')}
-            className="border-2 rounded-md p-3"
-          ></input>
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="mt-10 p-3 bg-secodary text-white text-s rounded-md"
+        <h2 className="mt-10 mb-10 text-center text-primary font-semibold text-m">
+          Register Attendance
+        </h2>
+        {/* <div className="w-full flex flex-row gap-2 bg-gray-500 "> */}
+        <div className="w-[100%]  p-3">
+          <form
+            className="flex flex-col gap-3"
+            onSubmit={() => console.log('submit')}
           >
-            Confirm
-          </button>
-          {user.email &&
-            user.confirmEmail &&
-            user.email !== user.confirmEmail && <p>Emails don't match</p>}
+            <input
+              placeholder="First Name"
+              value={user.firstName}
+              onChange={handleChange('firstName')}
+              className="border-2 rounded-md p-3 flex-1"
+              required={true}
+            ></input>
+            <input
+              placeholder="Last Name"
+              value={user.lastName}
+              onChange={handleChange('lastName')}
+              className="border-2 rounded-md p-3 flex-1"
+              required={true}
+            ></input>
+            {/* </div> */}
+
+            <input
+              type="email"
+              placeholder="Email"
+              value={user.email}
+              onChange={handleChange('email')}
+              className="border-2 rounded-md p-3"
+              required={true}
+            ></input>
+
+            <input
+              type="email"
+              placeholder="Confirm Email"
+              value={user.confirmEmail}
+              onChange={handleChange('confirmEmail')}
+              className="border-2 rounded-md p-3"
+              required={true}
+            ></input>
+            <button
+              type="submit"
+              // onClick={() => setIsModalOpen(false)}
+              className="mt-10 p-3 bg-secodary text-white text-s rounded-md"
+            >
+              Submit
+            </button>
+            {user.email &&
+              user.confirmEmail &&
+              user.email !== user.confirmEmail && <p>Emails don't match</p>}
+          </form>
         </div>
       </div>
     </>
