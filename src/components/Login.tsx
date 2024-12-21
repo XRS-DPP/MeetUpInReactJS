@@ -1,29 +1,29 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {
   const admin = { email: 'admin@meetupnow.com', password: 'IamSuperAdmin!' };
   const userRef = useRef<HTMLInputElement | undefined>();
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<Boolean>(false);
-  //   const navigate = useNavigate();
+  const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
     userRef.current!.focus();
   }, []);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setErrMsg('');
     const { name, value } = e.target;
     setInput((pre) => ({ ...pre, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (input.email === admin.email && input.password === admin.password) {
       setIsLoggedin(true);
-      console.log(input);
-      //   navigate('/events');
     }
+    setErrMsg('Email and pass word do not match');
   };
 
   return (
@@ -68,7 +68,7 @@ export const Login = () => {
               required={true}
               autoComplete="on"
             ></input>
-
+            <p>{errMsg}</p>
             <button className="bg-secodary text-white font-semibold p-3 rounded-md text-center text-s mt-4">
               Log In
             </button>
