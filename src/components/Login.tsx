@@ -23,7 +23,7 @@ export const Login = () => {
     if (input.email === admin.email && input.password === admin.password) {
       setIsLoggedin(true);
     }
-    setErrMsg('Email and pass word do not match');
+    setErrMsg('Email and password do not match');
   };
 
   return (
