@@ -22,8 +22,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="p-2">
-      <p className="text-m font-semibold pl-2 mt-4 text-primary">Log in</p>
+    <section className="p-2">
+      <h2 className="text-m font-semibold pl-2 mt-4 text-primary">Log in</h2>
       <form
         className="flex flex-col gap-5 p-2 mt-4"
         onSubmit={(e) => {
@@ -56,6 +56,6 @@ export const Login = () => {
           Log In
         </button>
       </form>
-    </div>
+    </section>
   );
 };
