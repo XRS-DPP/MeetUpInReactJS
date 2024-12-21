@@ -1,10 +1,13 @@
-import { HtmlHTMLAttributes, useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const admin = { email: 'admin@meetupnow.com', password: 'IamSuperAdmin!' };
 
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<Boolean>(false);
+
+  const navigate = useNavigate();
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -13,8 +16,8 @@ export const Login = () => {
 
   const handleLogin = () => {
     if (input.email === admin.email && input.password === admin.password) {
-      console.log('logged in');
       setIsLoggedin(true);
+      navigate('/events');
     }
   };
 
@@ -48,6 +51,7 @@ export const Login = () => {
           required={true}
           autoComplete="on"
         ></input>
+        {/* {loginError && <p>Email and password don't match</p>} */}
         <button className="bg-secodary text-white font-semibold p-3 rounded-md text-center text-s mt-4">
           Log In
         </button>
