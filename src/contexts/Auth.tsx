@@ -4,9 +4,10 @@ type AuthContextProps = {
   auth: boolean;
   setAuth: React.Dispatch<React.SetStateAction<boolean>>;
 };
-export const AuthContext = createContext<AuthContextProps | undefined>(
-  undefined,
-);
+export const AuthContext = createContext<AuthContextProps>({
+  auth: false,
+  setAuth: () => void
+});
 
 type Props = { children: JSX.Element | JSX.Element[] };
 export const AuthProvider = ({ children }: Props) => {

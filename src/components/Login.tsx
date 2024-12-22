@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/Auth';
 
 export const Login = () => {
   const admin = { email: 'admin@meetupnow.com', password: 'IamSuperAdmin!' };
@@ -7,6 +8,7 @@ export const Login = () => {
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
+  const { setAuth } = useContext(AuthContext);
 
   useEffect(() => {
     userRef.current!.focus();
@@ -22,6 +24,7 @@ export const Login = () => {
     e.preventDefault();
     if (input.email === admin.email && input.password === admin.password) {
       setIsLoggedin(true);
+      setAuth(true);
     }
     setErrMsg('Email and password do not match');
   };
