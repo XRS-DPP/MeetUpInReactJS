@@ -1,6 +1,12 @@
 import { createContext, useState } from 'react';
 
-export const AuthContext = createContext();
+type AuthContextProps = {
+  auth: boolean;
+  setAuth: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export const AuthContext = createContext<AuthContextProps | undefined>(
+  undefined,
+);
 
 type Props = { children: JSX.Element | JSX.Element[] };
 export const AuthProvider = ({ children }: Props) => {
