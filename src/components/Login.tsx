@@ -5,7 +5,7 @@ export const Login = () => {
   const admin = { email: 'admin@meetupnow.com', password: 'IamSuperAdmin!' };
   const userRef = useRef<HTMLInputElement | undefined>();
   const [input, setInput] = useState({ email: '', password: '' });
-  const [isLoggedin, setIsLoggedin] = useState<Boolean>(false);
+  const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
