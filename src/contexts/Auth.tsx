@@ -6,7 +6,7 @@ type AuthContextProps = {
 };
 export const AuthContext = createContext<AuthContextProps>({
   auth: false,
-  setAuth: () => void
+  setAuth: () => {},
 });
 
 type Props = { children: JSX.Element | JSX.Element[] };
