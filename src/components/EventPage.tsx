@@ -118,26 +118,27 @@ const EventPage = () => {
             {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
           </p>
         </div>
+        {confirmGoing && (
+          <p className="text-xs mt-2 text-orange-600">You are going!</p>
+        )}
 
         {confirmGoing ? (
-          <p className="text-xs mt-2 text-orange-600">You are going!</p>
+          <button
+            type="button"
+            onClick={() => handleClick()}
+            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2"
+          >
+            Add Event To Calendar
+          </button>
         ) : (
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl "
+            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2 "
           >
             Join & RSVP
           </button>
         )}
-
-        <button
-          type="button"
-          onClick={() => handleClick()}
-          className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-3 left-2 right-2"
-        >
-          Add Event To Calendar
-        </button>
 
         {isModalOpen && (
           <Modal
