@@ -5,7 +5,7 @@ import EventPage from './components/EventPage';
 import Header from './components/Header';
 import { Login } from './components/Login';
 import events from './assets/events.json';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -13,6 +13,12 @@ function App() {
   const [eventList, setEventList] = useState(
     storedEvents.length ? storedEvents : events,
   );
+
+  useEffect(() => {
+    if (eventList.length > 0) {
+      localStorage.setItem(STORE_KEY, eventList);
+    }
+  }, [eventList]);
 
   return (
     <div>
@@ -23,7 +29,12 @@ function App() {
           path="/events"
           element={<EventList eventList={eventList} />}
         ></Route>
-        <Route path="/events/:id" element={<EventPage />}></Route>
+        <Route
+          path="/events/:id"
+          element={
+            <EventPage eventList={eventList} setEventList={setEventList} />
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
     </div>

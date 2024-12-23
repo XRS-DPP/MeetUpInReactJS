@@ -1,6 +1,6 @@
 import { EventCard } from './EventCard';
 
-type EventProps = {
+type Event = {
   id: string;
   title: string;
   description: string;
@@ -11,12 +11,12 @@ type EventProps = {
   interestedCount: number;
 };
 
-type EventListProps = { eventList: EventProps[] };
+type EventListProps = { eventList: Event[] };
 
 const EventList = ({ eventList }: EventListProps) => {
   return (
     <>
-      {eventList.map((event: EventProps, index: number) => {
+      {eventList.map((event: Event, index: number) => {
         return <EventCard event={event} index={index} key={index} />;
       })}
     </>
