@@ -34,11 +34,8 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   const event = eventList.find((item) => item.id === id);
   const handleDelete = (id: number) => {
     const eventIndex = eventList.findIndex((item) => +item.id === id);
-    eventList.splice(eventIndex, 1);
-    setEventList(eventList);
-    console.log(eventList);
-    alert('deleted');
-    setIsDeleted(true);
+    const updatedEventList = eventList.filter((item) => +item.id !== id);
+    setEventList(updatedEventList);
   };
 
   const gapi = window.gapi;

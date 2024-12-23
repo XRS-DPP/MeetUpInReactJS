@@ -16,7 +16,12 @@ function App() {
 
   useEffect(() => {
     if (eventList.length > 0) {
+      console.log('useEffect', eventList);
       localStorage.setItem(STORE_KEY, JSON.stringify(eventList));
+      console.log(
+        'localStorage after update:',
+        localStorage.getItem('EVENTS_STORE'),
+      );
     }
   }, [eventList]);
 
