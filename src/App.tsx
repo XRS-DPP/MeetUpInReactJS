@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     if (eventList.length > 0) {
-      localStorage.setItem(STORE_KEY, eventList);
+      localStorage.setItem(STORE_KEY, JSON.stringify(eventList));
     }
   }, [eventList]);
 
