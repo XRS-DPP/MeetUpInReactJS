@@ -8,6 +8,15 @@ const [eventInput, SetEventInput] = useState({
   ImgUrl: '',
 });
 
+const handleEventInput = (
+  e:
+    | React.ChangeEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLTextAreaElement>,
+) => {
+  const { name, value } = e.target;
+  SetEventInput((prev) => ({ ...prev, [name]: value }));
+};
+
 const CreateEvent = () => {
   return (
     <section className="text-center mt-6 p-3 ">
@@ -17,36 +26,43 @@ const CreateEvent = () => {
           placeholder="Title"
           name="title"
           value={eventInput.title}
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <textarea
           placeholder="Description"
           name="descritpion"
+          value={eventInput.description}
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></textarea>
         <input
           placeholder="Start time"
           name="startTime"
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="End time"
           name="endTime"
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="Location"
           name="location"
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="Image URL"
           name="ImgUrl"
+          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
