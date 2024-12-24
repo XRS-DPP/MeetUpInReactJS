@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { Login } from './components/Login';
 import events from './assets/events.json';
 import { useEffect, useState } from 'react';
+import CreateEvent from './components/CreateEvent';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -34,6 +35,7 @@ function App() {
           path="/events"
           element={<EventList eventList={eventList} />}
         ></Route>
+        <Route path="/create" element={<CreateEvent />}></Route>
         <Route
           path="/events/:id"
           element={
