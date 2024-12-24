@@ -5,7 +5,7 @@ const [eventInput, SetEventInput] = useState({
   description: '',
   startTime: '',
   location: '',
-  url: '',
+  ImgUrl: '',
 });
 
 const CreateEvent = () => {
@@ -15,31 +15,38 @@ const CreateEvent = () => {
       <form className="flex flex-col gap-2 p-2 mt-3">
         <input
           placeholder="Title"
+          name="title"
+          value={eventInput.title}
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <textarea
           placeholder="Description"
+          name="descritpion"
           className="p-2 border-2 rounded-md"
           required
         ></textarea>
         <input
           placeholder="Start time"
+          name="startTime"
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="End time"
+          name="endTime"
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="Location"
+          name="location"
           className="p-2 border-2 rounded-md"
           required
         ></input>
         <input
           placeholder="Image URL"
+          name="ImgUrl"
           className="p-2 border-2 rounded-md"
           required
         ></input>
