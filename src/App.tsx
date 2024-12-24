@@ -7,6 +7,7 @@ import { Login } from './components/Login';
 import events from './assets/events.json';
 import { useEffect, useState } from 'react';
 import CreateEvent from './components/CreateEvent';
+import NotFound from './components/NotFound';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -48,6 +49,7 @@ function App() {
           }
         ></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/*" element={<NotFound />}></Route>
       </Routes>
     </div>
   );
