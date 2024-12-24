@@ -1,7 +1,7 @@
 import { EventCard } from './EventCard';
 
 type Event = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   datetime: string;

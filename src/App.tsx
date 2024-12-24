@@ -6,6 +6,7 @@ import Header from './components/Header';
 import { Login } from './components/Login';
 import events from './assets/events.json';
 import { useEffect, useState } from 'react';
+import CreateEvent from './components/CreateEvent';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -16,12 +17,12 @@ function App() {
 
   useEffect(() => {
     if (eventList.length > 0) {
-      console.log('useEffect', eventList);
+      // console.log('useEffect', eventList);
       localStorage.setItem(STORE_KEY, JSON.stringify(eventList));
-      console.log(
-        'localStorage after update:',
-        localStorage.getItem('EVENTS_STORE'),
-      );
+      // console.log(
+      //   'localStorage after update:',
+      //   localStorage.getItem('EVENTS_STORE'),
+      // );
     }
   }, [eventList]);
 
@@ -33,6 +34,12 @@ function App() {
         <Route
           path="/events"
           element={<EventList eventList={eventList} />}
+        ></Route>
+        <Route
+          path="/events/create"
+          element={
+            <CreateEvent eventList={eventList} setEventList={setEventList} />
+          }
         ></Route>
         <Route
           path="/events/:id"

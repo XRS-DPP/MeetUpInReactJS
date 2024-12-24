@@ -11,7 +11,7 @@ import Modal from './Modal';
 import { AuthContext } from '../contexts/Auth';
 
 type Event = {
-  id: string;
+  id: number;
   title: string;
   description: string;
   datetime: string;
@@ -37,7 +37,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     confirmEmail: '',
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
-  const event = eventList.find((item) => item.id === id);
+  const event = eventList.find((item) => item.id === +id);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -144,10 +144,9 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     );
 
   if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
-  else
+  if (event)
     return (
       <div className="p-3 w-full flex flex-col">
-        {isDeleted && <p>Content is deleted. Redirecting to home page...</p>}
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}

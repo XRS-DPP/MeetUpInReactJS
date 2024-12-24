@@ -16,7 +16,7 @@ const Header = () => {
       </Link>
       {auth ? (
         <div className="flex items-center ">
-          <Link className=" pr-2 ">
+          <Link className=" pr-2 " to={'/events/create'}>
             <CirclePlus size={22} />
           </Link>
           <Link>
