@@ -44,7 +44,8 @@ const CreateEvent = ({ eventList, setEventList }: Props) => {
       console.log('in reduce');
       return +obj.id > max ? obj.id : max;
     }, 0);
-    setEventList((prev) => [...prev, { ...eventInput, id: maxId + 1 }]);
+    console.log(typeof maxId);
+    setEventList((prev) => [...prev, { ...eventInput, id: maxId * 1 + 1 }]);
   };
 
   return (
