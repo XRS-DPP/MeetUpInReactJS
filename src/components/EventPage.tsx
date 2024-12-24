@@ -38,7 +38,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
   const event = eventList.find((item) => item.id === +id);
-
   const navigate = useNavigate();
 
   useEffect(() => {
