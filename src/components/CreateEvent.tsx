@@ -1,6 +1,21 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
-const CreateEvent = () => {
+type Event = {
+  id: string;
+  title: string;
+  description: string;
+  datetime: string;
+  location: string;
+  image: string;
+  status: string;
+  interestedCount: number;
+};
+type Props = {
+  eventList: Event[];
+  setEventList: Dispatch<SetStateAction<Event[]>>;
+};
+
+const CreateEvent = ({ setEventList }: Props) => {
   const [eventInput, SetEventInput] = useState({
     title: '',
     description: '',

@@ -35,7 +35,10 @@ function App() {
           path="/events"
           element={<EventList eventList={eventList} />}
         ></Route>
-        <Route path="/events/create" element={<CreateEvent />}></Route>
+        <Route
+          path="/events/create"
+          element={<CreateEvent setEventList={setEventList} />}
+        ></Route>
         <Route
           path="/events/:id"
           element={
