@@ -147,7 +147,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   else
     return (
       <div className="p-3 w-full flex flex-col">
-        {isDeleted && <p>Content is deleted. Redirecting to home page...</p>}
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}
