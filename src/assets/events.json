@@ -1,6 +1,6 @@
 [
   {
-    "id": "1",
+    "id": 1,
     "title": "Food Truck Festival",
     "description": "A festival celebrating the best food trucks in the city. Enjoy gourmet food, live music, and a fun atmosphere. Bring your friends and family!",
     "datetime": "2024-11-25T11:00:00",
@@ -10,7 +10,7 @@
     "interestedCount": 520
   },
   {
-    "id": "2",
+    "id": 2,
     "title": "Tech Conference 2024",
     "description": "Discover the latest trends in technology and innovation at this year’s Tech Innovations Conference. Keynotes by industry leaders and hands-on workshops.",
     "datetime": "2024-12-10T09:00:00",
@@ -20,7 +20,7 @@
     "interestedCount": 800
   },
   {
-    "id": "3",
+    "id": 3,
     "title": "International Dance Festival",
     "description": "A celebration of global dance styles! Experience performances and workshops from top dancers around the world.",
     "datetime": "2024-12-17T16:00:00",
@@ -30,7 +30,7 @@
     "interestedCount": 750
   },
   {
-    "id": "4",
+    "id": 4,
     "title": "Yoga for Beginners Workshop",
     "description": "A calming and introductory workshop to yoga. Learn the basics of breathing, stretching, and meditation in a peaceful environment.",
     "datetime": "2024-12-12T10:00:00",
@@ -40,7 +40,7 @@
     "interestedCount": 150
   },
   {
-    "id": "5",
+    "id": 5,
     "title": "Christmas Charity Gala",
     "description": "Join us for an elegant evening of fine dining, music, and fundraising for charity. All proceeds go to children’s hospitals.",
     "datetime": "2024-12-07T19:30:00",
@@ -50,7 +50,7 @@
     "interestedCount": 320
   },
   {
-    "id": "6",
+    "id": 6,
     "title": "Art Exhibition: Future Visions",
     "description": "Explore contemporary art at this unique exhibition featuring the works of emerging artists who are redefining art for the future.",
     "datetime": "2024-11-18T17:00:00",
@@ -60,7 +60,7 @@
     "interestedCount": 180
   },
   {
-    "id": "7",
+    "id": 7,
     "title": "Virtual Reality Gaming Tournament",
     "description": "Compete in the first-ever global Virtual Reality gaming tournament. Test your skills and win amazing prizes!",
     "datetime": "2024-12-15T14:00:00",
@@ -70,7 +70,7 @@
     "interestedCount": 4300
   },
   {
-    "id": "8",
+    "id": 8,
     "title": "Outdoor Movie Night: The Lion King",
     "description": "Watch the classic animated film under the stars! Bring a blanket, your loved ones, and enjoy a great outdoor cinema experience.",
     "datetime": "2024-11-22T19:00:00",
@@ -80,7 +80,7 @@
     "interestedCount": 250
   },
   {
-    "id": "9",
+    "id": 9,
     "title": "Holiday Craft Market",
     "description": "Shop for unique handmade crafts, ornaments, and gifts just in time for the holiday season. Support local artisans and find that perfect gift!",
     "datetime": "2024-12-03T09:00:00",
@@ -90,7 +90,7 @@
     "interestedCount": 600
   },
   {
-    "id": "10",
+    "id": 10,
     "title": "Music Concert: Rock Legends",
     "description": "Join us for an unforgettable night with some of the biggest rock legends of all time. Live music, great vibes, and an epic crowd.",
     "datetime": "2024-12-05T19:30:00",
