@@ -44,7 +44,7 @@ export const EventCard = ({ event, index }: Props) => {
 
         {/* <Bookmark size={20} color="gray"></Bookmark>
           <Share size={20} color="gray" /> */}
-        <Link to={`/events/${index + 1}`}>
+        <Link to={`/events/${event.id}`}>
           <button className="text-xxs bg-secodary text-white p-1 rounded-md">
             More Info
           </button>

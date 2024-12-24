@@ -1,21 +1,60 @@
-import { useParams } from 'react-router-dom';
-import events from '../assets/events.json';
+import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-import { useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import Modal from './Modal';
+import { AuthContext } from '../contexts/Auth';
 
-const EventPage = () => {
+type Event = {
+  id: string;
+  title: string;
+  description: string;
+  datetime: string;
+  location: string;
+  image: string;
+  status: string;
+  interestedCount: number;
+};
+type Props = {
+  eventList: Event[];
+  setEventList: Dispatch<SetStateAction<Event[]>>;
+};
+
+const EventPage = ({ setEventList, eventList }: Props) => {
   const { id } = useParams();
+  const { auth } = useContext(AuthContext);
   const [confirmGoing, setConfirmGoing] = useState<Boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<Boolean>(false);
-  console.log(confirmGoing);
-
   const [user, setUser] = useState({
     firstName: '',
     lastName: '',
     email: '',
     confirmEmail: '',
   });
+  const [isDeleted, setIsDeleted] = useState<boolean>(false);
+  const event = eventList.find((item) => item.id === id);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isDeleted) {
+      const timer = setTimeout(() => {
+        navigate('/events');
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isDeleted]);
+
+  const handleDelete = (id: number) => {
+    const updatedEventList = eventList.filter((item) => +item.id !== id);
+    setEventList(updatedEventList);
+    setIsDeleted(true);
+  };
 
   const gapi = window.gapi;
   const CLIENT_ID =
@@ -99,11 +138,16 @@ const EventPage = () => {
   };
   */
 
-  const event = events.find((item) => item.id === id);
-  if (!event) return <>Event not found</>;
+  if (!event && isDeleted)
+    return (
+      <p className="p-2 mt-5">Event deleted. Redirecting to home page....</p>
+    );
+
+  if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
   else
     return (
       <div className="p-3 w-full flex flex-col">
+        {isDeleted && <p>Content is deleted. Redirecting to home page...</p>}
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}
@@ -117,7 +161,21 @@ const EventPage = () => {
           <p className="font-xs text-secodary font-semibold">
             {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
           </p>
+          {auth && (
+            <div className="flex gap-3 mt-3">
+              <button className="px-3 py-2  text-xs bg-secodary rounded-md">
+                Update
+              </button>
+              <button
+                onClick={() => handleDelete(+id)}
+                className="px-3 py-2 text-xs bg-red-500 rounded-md"
+              >
+                Delete
+              </button>
+            </div>
+          )}
         </div>
+
         {confirmGoing && (
           <p className="text-xs mt-2 text-orange-600">You are going!</p>
         )}

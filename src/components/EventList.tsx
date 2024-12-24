@@ -1,10 +1,22 @@
-import events from '../assets/events.json';
 import { EventCard } from './EventCard';
 
-const EventList = () => {
+type Event = {
+  id: string;
+  title: string;
+  description: string;
+  datetime: string;
+  location: string;
+  image: string;
+  status: string;
+  interestedCount: number;
+};
+
+type EventListProps = { eventList: Event[] };
+
+const EventList = ({ eventList }: EventListProps) => {
   return (
     <>
-      {events.map((event, index) => {
+      {eventList.map((event: Event, index: number) => {
         return <EventCard event={event} index={index} key={index} />;
       })}
     </>
