@@ -1,23 +1,23 @@
 import { useState } from 'react';
 
-const [eventInput, SetEventInput] = useState({
-  title: '',
-  description: '',
-  startTime: '',
-  location: '',
-  ImgUrl: '',
-});
-
-const handleEventInput = (
-  e:
-    | React.ChangeEvent<HTMLInputElement>
-    | React.ChangeEvent<HTMLTextAreaElement>,
-) => {
-  const { name, value } = e.target;
-  SetEventInput((prev) => ({ ...prev, [name]: value }));
-};
-
 const CreateEvent = () => {
+  const [eventInput, SetEventInput] = useState({
+    title: '',
+    description: '',
+    startTime: '',
+    endTime: '',
+    location: '',
+    ImgUrl: '',
+  });
+
+  const handleEventInput = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    SetEventInput((prev) => ({ ...prev, [name]: value }));
+  };
   return (
     <section className="text-center mt-6 p-3 ">
       <h2 className="text-secodary font-semibold text-s">Add a new event</h2>
@@ -26,7 +26,6 @@ const CreateEvent = () => {
           placeholder="Title"
           name="title"
           value={eventInput.title}
-          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></input>
@@ -34,7 +33,6 @@ const CreateEvent = () => {
           placeholder="Description"
           name="descritpion"
           value={eventInput.description}
-          onChange={handleEventInput}
           className="p-2 border-2 rounded-md"
           required
         ></textarea>
