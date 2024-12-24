@@ -1,6 +1,12 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-import { Dispatch, SetStateAction, useContext, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import Modal from './Modal';
 import { AuthContext } from '../contexts/Auth';
 
@@ -32,10 +38,22 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
   const event = eventList.find((item) => item.id === id);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isDeleted) {
+      const timer = setTimeout(() => {
+        navigate('/events');
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isDeleted]);
+
   const handleDelete = (id: number) => {
-    const eventIndex = eventList.findIndex((item) => +item.id === id);
     const updatedEventList = eventList.filter((item) => +item.id !== id);
     setEventList(updatedEventList);
+    setIsDeleted(true);
   };
 
   const gapi = window.gapi;
@@ -120,10 +138,16 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   };
   */
 
-  if (!event) return <>Event not found</>;
+  if (!event && isDeleted)
+    return (
+      <p className="p-2 mt-5">Event deleted. Redirecting to home page....</p>
+    );
+
+  if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
   else
     return (
       <div className="p-3 w-full flex flex-col">
+        {isDeleted && <p>Content is deleted. Redirecting to home page...</p>}
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}
@@ -137,7 +161,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <p className="font-xs text-secodary font-semibold">
             {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
           </p>
-          {isDeleted && <p> Item is deleted</p>}
           {auth && (
             <div className="flex gap-3 mt-3">
               <button className="px-3 py-2  text-xs bg-secodary rounded-md">
