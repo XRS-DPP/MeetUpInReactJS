@@ -112,7 +112,7 @@ const CreateEvent = ({ eventList, setEventList }: Props) => {
           className="p-2 border-2 rounded-md"
           required
         ></input>
-        <button className="bg-secodary text-white p-3 rounded-md mt-5">
+        <button className="bg-secodary text-white p-3 rounded-md mt-5 cursor-pointer">
           CREATE
         </button>
       </form>
