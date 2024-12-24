@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 
 type Props = {
   event: {
-    id: string;
+    id: number;
     title: string;
     description: string;
     datetime: string;

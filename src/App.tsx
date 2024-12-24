@@ -17,12 +17,12 @@ function App() {
 
   useEffect(() => {
     if (eventList.length > 0) {
-      console.log('useEffect', eventList);
+      // console.log('useEffect', eventList);
       localStorage.setItem(STORE_KEY, JSON.stringify(eventList));
-      console.log(
-        'localStorage after update:',
-        localStorage.getItem('EVENTS_STORE'),
-      );
+      // console.log(
+      //   'localStorage after update:',
+      //   localStorage.getItem('EVENTS_STORE'),
+      // );
     }
   }, [eventList]);
 
@@ -37,7 +37,9 @@ function App() {
         ></Route>
         <Route
           path="/events/create"
-          element={<CreateEvent setEventList={setEventList} />}
+          element={
+            <CreateEvent eventList={eventList} setEventList={setEventList} />
+          }
         ></Route>
         <Route
           path="/events/:id"

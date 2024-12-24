@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
 
 export const Login = () => {
-  const admin = { email: 'admin@meetupnow.com', password: 'IamSuperAdmin!' };
+  const admin = { email: 'admin@meetupnow.com', password: '123!' };
   const userRef = useRef<HTMLInputElement | undefined>();
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
