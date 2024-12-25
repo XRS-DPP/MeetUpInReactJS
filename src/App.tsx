@@ -50,7 +50,12 @@ function App() {
           }
         ></Route>
 
-        <Route path="/events/:id/edit" element={<EditEvent />}></Route>
+        <Route
+          path="/events/:id/edit"
+          element={
+            <EditEvent eventList={eventList} setEventList={setEventList} />
+          }
+        ></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
