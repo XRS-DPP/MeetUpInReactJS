@@ -8,6 +8,7 @@ const EditEvent = ({ eventList, setEventList }) => {
   const navigate = useNavigate();
 
   const [eventInput, setEventInput] = useState(event || null);
+  const [errMsg, setErrMsg] = useState('');
 
   const handleEventInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,7 +24,10 @@ const EditEvent = ({ eventList, setEventList }) => {
     navigate('/events');
   };
 
-  if (!event) return <p>Event not found...</p>;
+  if (!event) {
+    setErrMsg('Event not found...');
+    return <p>{errMsg}</p>;
+  }
   return (
     <section>
       <h2>Edit Event</h2>
