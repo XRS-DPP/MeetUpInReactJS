@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
+import LandingPage from './pages/LandingPage';
 import EventList from './components/EventList';
-import EventPage from './components/EventPage';
+import EventPage from './pages/EventPage';
 import Header from './components/Header';
-import { Login } from './components/Login';
+import { Login } from './pages/Login';
 import events from './assets/events.json';
 import { useEffect, useState } from 'react';
-import CreateEvent from './components/CreateEvent';
+import CreateEvent from './pages/CreateEvent';
 import NotFound from './components/NotFound';
-import EditEvent from './components/EditEvent';
+import EditEvent from './pages/EditEvent';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';

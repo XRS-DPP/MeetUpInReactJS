@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import EventForm from './EventForm';
+import EventForm from '../components/EventForm';
 import { SetStateAction, useState } from 'react';
 
 type Event = {
