@@ -34,7 +34,7 @@ const EditEvent = ({ eventList, setEventList }: Props) => {
     setEventInput({ ...eventInput, [name]: value });
   };
 
-  const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleUpdateEvent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const updatedEventList = eventList.map((item) =>
       item.id === eventInput.id ? eventInput : item,
@@ -54,7 +54,7 @@ const EditEvent = ({ eventList, setEventList }: Props) => {
         eventInput={eventInput}
         name={'Update'}
         handleEventInputChange={handleEventInputChange}
-        handleSubmitForm={handleSubmitForm}
+        handleSubmitForm={handleUpdateEvent}
       />
     </section>
   );

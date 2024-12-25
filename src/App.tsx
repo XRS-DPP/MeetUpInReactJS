@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import CreateEvent from './pages/CreateEvent';
 import NotFound from './components/NotFound';
 import EditEvent from './pages/EditEvent';
+import './App.css';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
