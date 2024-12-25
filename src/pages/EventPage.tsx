@@ -1,12 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-import {
-  Dispatch,
-  SetStateAction,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
 
@@ -22,7 +16,7 @@ type Event = {
 };
 type Props = {
   eventList: Event[];
-  setEventList: Dispatch<SetStateAction<Event[]>>;
+  setEventList: React.Dispatch<SetStateAction<Event[]>>;
 };
 
 const EventPage = ({ setEventList, eventList }: Props) => {
@@ -60,16 +54,15 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     navigate(`/events/${id}/edit`, { state: event });
   };
 
-  // const gapi = window.gapi;
-  // const CLIENT_ID =
-  //   '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
-  // const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
-  // const DISCOVERY_DOCS = [
-  //   'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
-  // ];
-  // const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+  const gapi = window.gapi;
+  const CLIENT_ID =
+    '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
+  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
+  const DISCOVERY_DOCS = [
+    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+  ];
+  const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
-  /*
   const handleClick = () => {
     gapi.load('client:auth2', () => {
       console.log('loaded client');
@@ -123,7 +116,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             window.open(eventToAdd.htmlLink);
           });
 
-          // get events
+          //get events
           gapi.client.calendar.events
             .list({
               calendarId: 'primary',
@@ -140,7 +133,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
         });
     });
   };
-  */
 
   if (!event && isDeleted)
     return (
