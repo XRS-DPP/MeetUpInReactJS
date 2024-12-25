@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import {
   Dispatch,
@@ -7,7 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import Modal from './Modal';
+import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
 
 type Event = {
