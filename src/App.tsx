@@ -8,6 +8,7 @@ import events from './assets/events.json';
 import { useEffect, useState } from 'react';
 import CreateEvent from './components/CreateEvent';
 import NotFound from './components/NotFound';
+import EditEvent from './components/EditEvent';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -48,6 +49,8 @@ function App() {
             <EventPage eventList={eventList} setEventList={setEventList} />
           }
         ></Route>
+
+        <Route path="/events/:id/edit" element={<EditEvent />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/*" element={<NotFound />}></Route>
       </Routes>
