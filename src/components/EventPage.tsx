@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { format } from 'date-fns';
 import {
   Dispatch,
@@ -56,14 +56,18 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     setIsDeleted(true);
   };
 
-  const gapi = window.gapi;
-  const CLIENT_ID =
-    '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
-  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
-  const DISCOVERY_DOCS = [
-    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
-  ];
-  const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+  const handleUpdate = () => {
+    navigate(`/events/${id}/edit`, { state: event });
+  };
+
+  // const gapi = window.gapi;
+  // const CLIENT_ID =
+  //   '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
+  // const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
+  // const DISCOVERY_DOCS = [
+  //   'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+  // ];
+  // const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
 
   /*
   const handleClick = () => {
@@ -162,9 +166,14 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           </p>
           {auth && (
             <div className="flex gap-3 mt-3">
-              <button className="px-3 py-2  text-xs bg-secodary rounded-md">
+              {/* <Link to={`/events/${id}/edit`}> */}
+              <button
+                onClick={handleUpdate}
+                className="px-3 py-2  text-xs bg-secodary rounded-md"
+              >
                 Update
               </button>
+              {/* </Link> */}
               <button
                 onClick={() => handleDelete(+id)}
                 className="px-3 py-2 text-xs bg-red-500 rounded-md"
