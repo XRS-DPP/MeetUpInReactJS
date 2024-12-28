@@ -7,7 +7,7 @@ type Props = {
     id: number;
     title: string;
     description: string;
-    datetime: string;
+    startTime: string;
     location: string;
     image: string;
     status: string;
@@ -22,7 +22,7 @@ export const EventCard = ({ event, index }: Props) => {
       <div key={index} className="flex items-start">
         <div className="flex-1">
           <p className="text-xs">
-            {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
+            {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
           </p>
           <p className="font-semibold text-s">{event.title}</p>
           <p className="line-clamp-2 text-xxs">{event.description}</p>
