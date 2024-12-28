@@ -8,7 +8,7 @@ type Event = {
   id: number;
   title: string;
   description: string;
-  datetime: string;
+  startTime: string;
   location: string;
   image: string;
   status: string;
@@ -31,6 +31,12 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     confirmEmail: '',
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
+  //states for google calendar API communication
+  const [accessToken, setAccessToken] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [isEventAddedToCalendar, setIsEventAddedToCalendar] = useState(false);
+  const [errMsg, setErrMsg] = useState('');
+
   const event = eventList.find((item) => item.id === +id);
   const navigate = useNavigate();
 
@@ -54,84 +60,97 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     navigate(`/events/${id}/edit`, { state: event });
   };
 
-  const gapi = window.gapi;
+  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
   const CLIENT_ID =
     '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
-  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
-  const DISCOVERY_DOCS = [
-    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
-  ];
   const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
+  const DISCOVERY_DOCS =
+    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
 
-  const handleClick = () => {
-    gapi.load('client:auth2', () => {
-      console.log('loaded client');
+  const handleButtonClick = async () => {
+    setErrMsg('');
+    setLoading(true);
 
-      gapi.client.init({
-        apiKey: API_KEY,
-        clientId: CLIENT_ID,
-        discoveryDocs: DISCOVERY_DOCS,
-        scope: SCOPES,
-      });
-
-      gapi.client.load('calendar', 'v3', () => console.log('bam!'));
-
-      gapi.auth2
-        .getAuthInstance()
-        .signIn()
-        .then(() => {
-          var event = {
-            summary: 'Awesome Event!',
-            location: '800 Howard St., San Francisco, CA 94103',
-            description: 'Really great refreshments',
-            start: {
-              dateTime: '2020-06-28T09:00:00-07:00',
-              timeZone: 'America/Los_Angeles',
-            },
-            end: {
-              dateTime: '2020-06-28T17:00:00-07:00',
-              timeZone: 'America/Los_Angeles',
-            },
-            recurrence: ['RRULE:FREQ=DAILY;COUNT=2'],
-            attendees: [
-              { email: 'lpage@example.com' },
-              { email: 'sbrin@example.com' },
-            ],
-            reminders: {
-              useDefault: false,
-              overrides: [
-                { method: 'email', minutes: 24 * 60 },
-                { method: 'popup', minutes: 10 },
-              ],
-            },
-          };
-
-          var request = gapi.client.calendar.events.insert({
-            calendarId: 'primary',
-            resource: event,
-          });
-
-          request.execute((eventToAdd) => {
-            console.log(eventToAdd);
-            window.open(eventToAdd.htmlLink);
-          });
-
-          //get events
-          gapi.client.calendar.events
-            .list({
-              calendarId: 'primary',
-              timeMin: new Date().toISOString(),
-              showDeleted: false,
-              singleEvents: true,
-              maxResults: 10,
-              orderBy: 'startTime',
-            })
-            .then((response) => {
-              const events = response.result.items;
-              console.log('EVENTS: ', events);
-            });
-        });
+    // Google OAuth implicit grant model
+    const client = google.accounts.oauth2.initTokenClient({
+      client_id: CLIENT_ID,
+      scope:
+        'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/contacts.readonly',
+      callback: (tokenResponse) => {
+        //tokenResponse is an object and token is saved on access_token
+        setAccessToken(tokenResponse.access_token);
+        postEventToCalendar(tokenResponse.access_token);
+      },
     });
+
+    client.requestAccessToken();
+  };
+
+  // const loadCalendar = (accessToken) => {
+  //   if (accessToken) {
+  //     fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+  //       headers: {
+  //         Authorization: `Bearer ${accessToken}`,
+  //       },
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         console.log('Calendar events:', data.items);
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error loading calendar:', error);
+  //       });
+  //   }
+  // };
+
+  const postEventToCalendar = (accessToken) => {
+    const startTimeISO = new Date(event?.startTime).toISOString();
+    const endTimeISO = new Date(event?.endTime).toISOString();
+    // Define the event details
+    const eventToAdd = {
+      summary: event?.title,
+      location: event?.location,
+      description: event?.description,
+      start: {
+        // Use ISO 8601 format for the start date and time
+        // dateTime: '2024-12-27T09:00:00-07:00',
+        dateTime: startTimeISO,
+        // timeZone: 'Europe/London',
+      },
+      end: {
+        dateTime: endTimeISO,
+        timeZone: 'Europe/London',
+      },
+      attendees: [{ email: user.email }],
+      reminders: {
+        useDefault: false,
+        overrides: [{ method: 'popup', minutes: 10 }],
+      },
+    };
+
+    // Send POST request to create the event
+    fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(eventToAdd),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('google api replied:', data);
+        if (data.error) {
+          setErrMsg(
+            data.error.errors.map((errObj) => errObj.message).join('\n'),
+          );
+        }
+        setIsEventAddedToCalendar(true);
+      })
+      .catch((error) => {
+        alert('Error');
+        setErrMsg(error.messeage);
+      });
   };
 
   if (!event && isDeleted)
@@ -154,7 +173,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <p className="text-xs">{event?.description}</p>
           <p className="text-xs">{event.location}</p>
           <p className="font-xs text-secodary font-semibold">
-            {format(new Date(event.datetime), 'EEEE, d LLL H:00')}
+            {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
           </p>
           {auth && (
             <div className="flex gap-3 mt-3">
@@ -180,10 +199,12 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <p className="text-xs mt-2 text-orange-600">You are going!</p>
         )}
 
+        {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
+
         {confirmGoing ? (
           <button
             type="button"
-            onClick={() => handleClick()}
+            onClick={() => handleButtonClick()}
             className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2"
           >
             Add Event To Calendar
