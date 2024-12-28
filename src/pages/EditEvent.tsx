@@ -6,7 +6,7 @@ type Event = {
   id: number;
   title: string;
   description: string;
-  datetime: string;
+  startTime: string;
   location: string;
   image: string;
   status: string;
