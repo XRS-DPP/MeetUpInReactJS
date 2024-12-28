@@ -52,7 +52,7 @@ const CreateEvent = ({ eventList, setEventList }: Props) => {
       id: 0,
       title: '',
       description: '',
-      datetime: '',
+      startTime: '',
       location: '',
       image: '',
       status: 'live',
