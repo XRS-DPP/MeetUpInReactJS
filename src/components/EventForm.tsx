@@ -26,8 +26,8 @@ export const EventForm = ({
       <input
         placeholder="YYYY-MM-DDTHH:00:00"
         type="datetime-local"
-        name="datetime"
-        value={eventInput.datetime}
+        name="startTime"
+        value={eventInput.startTime}
         onChange={handleEventInputChange}
         className="p-2 border-2 rounded-md"
         required
