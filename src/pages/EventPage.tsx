@@ -32,9 +32,10 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
   //states for google calendar API communication
-  const [accessToken, setAccessToken] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [isEventAddedToCalendar, setIsEventAddedToCalendar] = useState(false);
+  const [accessToken, setAccessToken] = useState<null | string>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isEventAddedToCalendar, setIsEventAddedToCalendar] =
+    useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
 
   const event = eventList.find((item) => item.id === +id);
@@ -106,7 +107,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   const postEventToCalendar = (accessToken) => {
     const startTimeISO = new Date(event?.startTime).toISOString();
     const endTimeISO = new Date(event?.endTime).toISOString();
-    // Define the event details
     const eventToAdd = {
       summary: event?.title,
       location: event?.location,
@@ -144,8 +144,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           setErrMsg(
             data.error.errors.map((errObj) => errObj.message).join('\n'),
           );
-        }
-        setIsEventAddedToCalendar(true);
+        } else setIsEventAddedToCalendar(true);
       })
       .catch((error) => {
         alert('Error');
@@ -177,14 +176,13 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           </p>
           {auth && (
             <div className="flex gap-3 mt-3">
-              {/* <Link to={`/events/${id}/edit`}> */}
               <button
                 onClick={handleUpdate}
                 className="px-3 py-2  text-xs bg-secodary rounded-md"
               >
                 Update
               </button>
-              {/* </Link> */}
+
               <button
                 onClick={() => handleDelete(+id)}
                 className="px-3 py-2 text-xs bg-red-500 rounded-md"
@@ -200,6 +198,11 @@ const EventPage = ({ setEventList, eventList }: Props) => {
         )}
 
         {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
+        {isEventAddedToCalendar && (
+          <p className="text-xs mt-2 text-orange-600">
+            Event is added to calendar
+          </p>
+        )}
 
         {confirmGoing ? (
           <button
