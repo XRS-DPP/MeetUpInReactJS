@@ -1,9 +1,25 @@
+type Props = {
+  eventInput: {
+    id: 0;
+    title: '';
+    description: '';
+    startTime: '';
+    location: '';
+    image: '';
+    status: 'live';
+    interestedCount: 0;
+  };
+  name: string;
+  handleEventInputChange: () => {};
+  handleSubmitForm: () => {};
+};
+
 export const EventForm = ({
   eventInput,
   name,
   handleEventInputChange,
   handleSubmitForm,
-}) => {
+}: Props) => {
   return (
     <form className="flex flex-col gap-2 p-2 mt-3" onSubmit={handleSubmitForm}>
       <input
