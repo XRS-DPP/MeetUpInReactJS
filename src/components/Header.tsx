@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
 
 const Header = () => {
-  const { auth } = useContext(AuthContext);
+  const { auth, setAuth } = useContext(AuthContext);
+  const handleLogOut = () => setAuth(false);
 
   return (
     <div className="flex p-3 border-b-2 mb-2 mt-2">
@@ -16,13 +17,10 @@ const Header = () => {
       </Link>
       {auth ? (
         <div className="flex items-center ">
-          <Link className=" pr-2 " to={'/events/create'}>
+          <Link className="pr-2" to={'/events/create'}>
             <CirclePlus size={22} />
           </Link>
-          <Link>
-            {/* <button className="bg-secodary text-white p-1 rounded-3xl">
-              Log out
-            </button> */}
+          <Link to="/" onClick={handleLogOut}>
             <LogOut size={22} color="black" />
           </Link>
         </div>
