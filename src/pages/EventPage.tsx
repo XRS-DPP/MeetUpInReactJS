@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
-import { MapPin, MapPinned } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 type User = {
   firstName: string;
@@ -69,12 +69,8 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     navigate(`/events/${id}/edit`, { state: event });
   };
 
-  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
-  const CLIENT_ID =
-    '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
-  const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
-  const DISCOVERY_DOCS =
-    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
+  const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+  const SCOPES = import.meta.env.VITE_SCOPES;
 
   const handleButtonClick = async () => {
     setErrMsg('');
@@ -83,8 +79,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     // Google OAuth implicit grant model
     const client = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
-      scope:
-        'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/contacts.readonly',
+      scope: SCOPES,
       callback: (tokenResponse) => {
         //tokenResponse is an object and token is saved on access_token
         setAccessToken(tokenResponse.access_token);
