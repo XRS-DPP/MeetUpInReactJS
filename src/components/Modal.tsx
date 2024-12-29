@@ -55,7 +55,7 @@ const Modal = ({
           <X className="size=16px" strokeWidth={1.25} />
         </button>
 
-        <h2 className="mt-10 mb-10 text-center text-primary font-semibold text-m">
+        <h2 className="mt-12 mb-10 text-center text-primary font-semibold text-m">
           Register Attendance
         </h2>
         {/* <div className="w-full flex flex-row gap-2 bg-gray-500 "> */}

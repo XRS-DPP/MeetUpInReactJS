@@ -32,18 +32,16 @@ export const Login = () => {
   return (
     <>
       {isLoggedin ? (
-        <section className="text-center bg-secodary p-3 m-2 text-white mt-10 rounded-md">
-          <h1 className="font-bold text-m ">Log in successful</h1>
+        <section className="text-secodary">
+          <h2 className="font-bold text-m ">Log in successful</h2>
           <br></br>
           <Link to="/events" className="underline text-s font-semibold">
             Go to home page
           </Link>
         </section>
       ) : (
-        <section className="p-2">
-          <h2 className="text-m font-semibold pl-2 mt-4 text-primary">
-            Log in
-          </h2>
+        <section>
+          <h2 className="font-semibold text-primary text-m">Log in</h2>
           <form
             className="flex flex-col gap-5 p-2 mt-4"
             onSubmit={(e) => {

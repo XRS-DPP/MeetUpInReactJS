@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
+import { MapPin, MapPinned } from 'lucide-react';
 
 type User = {
   firstName: string;
@@ -167,17 +168,22 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
   if (event)
     return (
-      <div className="p-3 w-full flex flex-col">
+      <div className="p-3 w-full flex flex-col  font-Poppins">
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}
             alt="event image"
-            className="rounded-l aspect-video "
+            className="rounded-lg aspect-video "
           ></img>
 
           <p className="font-semibold text-m text-primary">{event.title}</p>
           <p className="text-xs">{event?.description}</p>
-          <p className="text-xs">{event.location}</p>
+          <div className="text-xs flex items-start gap-1">
+            <span className="inline-block">
+              <MapPin color="gray" size={22} />
+            </span>
+            <span>{event.location}</span>
+          </div>
           <p className="font-xs text-secodary font-semibold">
             {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
           </p>
@@ -185,14 +191,14 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             <div className="flex gap-3 mt-3">
               <button
                 onClick={handleUpdate}
-                className="px-3 py-2  text-xs bg-secodary rounded-lg text-white"
+                className="px-2 text-xxs bg-secodary rounded-lg text-white"
               >
                 Update
               </button>
 
               <button
-                onClick={() => handleDelete(+id)}
-                className="px-3 py-2 text-xs bg-red-500 rounded-lg text-white"
+                onClick={() => handleDelete(+id!)}
+                className="px-3 py-2 text-xxs bg-red-500 rounded-lg text-white"
               >
                 Delete
               </button>
@@ -213,7 +219,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => handleButtonClick()}
-            className="bg-secodary text-white font-normal text-s py-3 rounded-lg absolute bottom-6 left-2 right-2 cursor-pointer"
+            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer"
           >
             Add Event To Calendar
           </button>
@@ -221,7 +227,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="bg-secodary text-white font-normal text-s py-3 rounded-lg absolute bottom-6 left-2 right-2 cursor-pointer "
+            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer "
           >
             Join & RSVP
           </button>

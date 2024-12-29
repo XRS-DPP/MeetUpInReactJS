@@ -15,6 +15,7 @@ export default {
         s: '1.15rem',
         m: '1.5rem',
       },
+      fontFamily: { Poppins: ['Poppins', 'sans-serif'] },
     },
   },
   plugins: [],
