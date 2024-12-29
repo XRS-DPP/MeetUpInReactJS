@@ -185,25 +185,23 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             <div className="flex gap-3 mt-3">
               <button
                 onClick={handleUpdate}
-                className="px-3 py-2  text-xs bg-secodary rounded-md"
+                className="px-3 py-2  text-xs bg-secodary rounded-lg text-white"
               >
                 Update
               </button>
 
               <button
                 onClick={() => handleDelete(+id)}
-                className="px-3 py-2 text-xs bg-red-500 rounded-md"
+                className="px-3 py-2 text-xs bg-red-500 rounded-lg text-white"
               >
                 Delete
               </button>
             </div>
           )}
         </div>
-
         {confirmGoing && (
           <p className="text-xs mt-2 text-orange-600">You are going!</p>
         )}
-
         {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
         {isEventAddedToCalendar && (
           <p className="text-xs mt-2 text-orange-600">
@@ -215,7 +213,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => handleButtonClick()}
-            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2"
+            className="bg-secodary text-white font-normal text-s py-3 rounded-lg absolute bottom-6 left-2 right-2 cursor-pointer"
           >
             Add Event To Calendar
           </button>
@@ -223,12 +221,11 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2 "
+            className="bg-secodary text-white font-normal text-s py-3 rounded-lg absolute bottom-6 left-2 right-2 cursor-pointer "
           >
             Join & RSVP
           </button>
         )}
-
         {isModalOpen && (
           <Modal
             user={user}

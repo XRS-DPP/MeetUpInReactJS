@@ -59,7 +59,7 @@ const Modal = ({
           Register Attendance
         </h2>
         {/* <div className="w-full flex flex-row gap-2 bg-gray-500 "> */}
-        <div className="w-[100%]  p-3">
+        <div className="w-[100%] p-3">
           <form
             className="flex flex-col gap-3"
             onSubmit={(e) => {

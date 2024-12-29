@@ -49,7 +49,7 @@ const EditEvent = ({ eventList, setEventList }: Props) => {
   }
   return (
     <section>
-      <h2>Edit Event</h2>
+      <h2 className="text-secodary font-semibold text-s">Edit Event</h2>
       <EventForm
         eventInput={eventInput}
         name={'Update'}
