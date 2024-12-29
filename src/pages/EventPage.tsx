@@ -4,6 +4,12 @@ import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
 
+type User = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  confirmEmail: string;
+};
 type Event = {
   id: number;
   title: string;
@@ -13,6 +19,7 @@ type Event = {
   image: string;
   status: string;
   interestedCount: number;
+  attendees: User[];
 };
 type Props = {
   eventList: Event[];
@@ -228,6 +235,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             setUser={setUser}
             setIsModalOpen={setIsModalOpen}
             setConfirmGoing={setConfirmGoing}
+            setEventList={setEventList}
           ></Modal>
         )}
       </div>
