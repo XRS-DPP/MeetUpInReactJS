@@ -6,8 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/Auth.tsx';
 
 createRoot(document.getElementById('root')!).render(
+  // basename={'/<MeetUpInReactJS>/'}
   <StrictMode>
-    <BrowserRouter basename={'/<MeetUpInReactJS>/'}>
+    <BrowserRouter basename="/MeetUpInReactJS/">
       <AuthProvider>
         <App />
       </AuthProvider>
