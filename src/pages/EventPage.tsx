@@ -3,7 +3,14 @@ import { format } from 'date-fns';
 import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
+import { MapPin } from 'lucide-react';
 
+type User = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  confirmEmail: string;
+};
 type Event = {
   id: number;
   title: string;
@@ -13,6 +20,7 @@ type Event = {
   image: string;
   status: string;
   interestedCount: number;
+  attendees: User[];
 };
 type Props = {
   eventList: Event[];
@@ -61,12 +69,8 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     navigate(`/events/${id}/edit`, { state: event });
   };
 
-  const API_KEY = 'AIzaSyAO1dO9cA22oxiCS97q5gwF1rpomtoiTJM';
-  const CLIENT_ID =
-    '929827744667-cdretqteanj9r4r62kjddl9umu4mt9ns.apps.googleusercontent.com';
-  const SCOPES = 'https://www.googleapis.com/auth/calendar.events';
-  const DISCOVERY_DOCS =
-    'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
+  const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
+  const SCOPES = import.meta.env.VITE_SCOPES;
 
   const handleButtonClick = async () => {
     setErrMsg('');
@@ -75,8 +79,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     // Google OAuth implicit grant model
     const client = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
-      scope:
-        'https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/contacts.readonly',
+      scope: SCOPES,
       callback: (tokenResponse) => {
         //tokenResponse is an object and token is saved on access_token
         setAccessToken(tokenResponse.access_token);
@@ -139,7 +142,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('google api replied:', data);
         if (data.error) {
           setErrMsg(
             data.error.errors.map((errObj) => errObj.message).join('\n'),
@@ -160,17 +162,22 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
   if (event)
     return (
-      <div className="p-3 w-full flex flex-col">
+      <div className="p-3 w-full flex flex-col  font-Poppins">
         <div className="flex flex-col gap-2 flex-1">
           <img
             src={event.image}
             alt="event image"
-            className="rounded-l aspect-video "
+            className="rounded-lg aspect-video "
           ></img>
 
           <p className="font-semibold text-m text-primary">{event.title}</p>
           <p className="text-xs">{event?.description}</p>
-          <p className="text-xs">{event.location}</p>
+          <div className="text-xs flex items-start gap-1">
+            <span className="inline-block">
+              <MapPin color="gray" size={22} />
+            </span>
+            <span>{event.location}</span>
+          </div>
           <p className="font-xs text-secodary font-semibold">
             {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
           </p>
@@ -178,25 +185,23 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             <div className="flex gap-3 mt-3">
               <button
                 onClick={handleUpdate}
-                className="px-3 py-2  text-xs bg-secodary rounded-md"
+                className="px-2 text-xxs bg-secodary rounded-lg text-white"
               >
                 Update
               </button>
 
               <button
-                onClick={() => handleDelete(+id)}
-                className="px-3 py-2 text-xs bg-red-500 rounded-md"
+                onClick={() => handleDelete(+id!)}
+                className="px-3 py-2 text-xxs bg-red-500 rounded-lg text-white"
               >
                 Delete
               </button>
             </div>
           )}
         </div>
-
         {confirmGoing && (
           <p className="text-xs mt-2 text-orange-600">You are going!</p>
         )}
-
         {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
         {isEventAddedToCalendar && (
           <p className="text-xs mt-2 text-orange-600">
@@ -208,7 +213,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => handleButtonClick()}
-            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2"
+            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer"
           >
             Add Event To Calendar
           </button>
@@ -216,18 +221,18 @@ const EventPage = ({ setEventList, eventList }: Props) => {
           <button
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="bg-secodary text-white font-semibold text-s py-4 rounded-xl absolute bottom-6 left-2 right-2 "
+            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer "
           >
             Join & RSVP
           </button>
         )}
-
         {isModalOpen && (
           <Modal
             user={user}
             setUser={setUser}
             setIsModalOpen={setIsModalOpen}
             setConfirmGoing={setConfirmGoing}
+            setEventList={setEventList}
           ></Modal>
         )}
       </div>

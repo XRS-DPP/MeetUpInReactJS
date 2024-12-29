@@ -1,50 +1,25 @@
-# React + TypeScript + Vite
+Summary of the Project:
+MeetUpNow is a platform where community staffs can create and share events with members of the community and community members can view events, register their attendance and add events to their google calendar.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features:
+For Community Staff (Admin Role):
 
-Currently, two official plugins are available:
+Login: Community staff can log into the app.
+Create Events: Staff can create new events with all necessary details (title, description, datetime, location, etc.).
+Update Events: Staff can update existing events.
+Delete Events: Staff can delete events.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+For Community Members:
 
-## Expanding the ESLint configuration
+View Events: Community members can view a list of events or individual event page.
+Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending).
+Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Local SetUp Instructions:
 
-- Configure the top-level `parserOptions` property like this:
+Clone the repository git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git
+Navigate to the project folder : cd MeetUpInReactJS,
+Install the dependencies: npm install,
+Run the application locally: npm run dev
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Node.js: Minimum version v20.18.1

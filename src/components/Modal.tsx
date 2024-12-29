@@ -1,10 +1,23 @@
 import { X } from 'lucide-react';
-
+import React from 'react';
+import { useParams } from 'react-router-dom';
 type User = {
   firstName: string;
   lastName: string;
   email: string;
   confirmEmail: string;
+};
+
+type Event = {
+  id: number;
+  title: string;
+  description: string;
+  startTime: string;
+  location: string;
+  image: string;
+  status: string;
+  interestedCount: number;
+  attendees: User[];
 };
 type Props = {
   user: {
@@ -16,9 +29,17 @@ type Props = {
   setUser: React.Dispatch<React.SetStateAction<User>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<Boolean>>;
   setConfirmGoing: React.Dispatch<React.SetStateAction<Boolean>>;
+  setEventList: React.Dispatch<React.SetStateAction<Event[]>>;
 };
 
-const Modal = ({ user, setIsModalOpen, setUser, setConfirmGoing }: Props) => {
+const Modal = ({
+  user,
+  setIsModalOpen,
+  setUser,
+  setConfirmGoing,
+  setEventList,
+}: Props) => {
+  const { id } = useParams();
   const handleChange =
     (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
       setUser({ ...user, [field]: e.target.value });
@@ -34,16 +55,28 @@ const Modal = ({ user, setIsModalOpen, setUser, setConfirmGoing }: Props) => {
           <X className="size=16px" strokeWidth={1.25} />
         </button>
 
-        <h2 className="mt-10 mb-10 text-center text-primary font-semibold text-m">
+        <h2 className="mt-12 mb-10 text-center text-primary font-semibold text-m">
           Register Attendance
         </h2>
         {/* <div className="w-full flex flex-row gap-2 bg-gray-500 "> */}
-        <div className="w-[100%]  p-3">
+        <div className="w-[100%] p-3">
           <form
             className="flex flex-col gap-3"
             onSubmit={(e) => {
               e.preventDefault();
               setIsModalOpen(false), setConfirmGoing(true);
+              setEventList((prev) => {
+                return prev.map((item) => {
+                  if (item.id === +id) {
+                    return {
+                      ...item,
+                      interestedCount: item.interestedCount + 1,
+                      attendees: [...item.attendees, user],
+                    };
+                  }
+                  return item;
+                });
+              });
             }}
           >
             <input
@@ -81,7 +114,6 @@ const Modal = ({ user, setIsModalOpen, setUser, setConfirmGoing }: Props) => {
             ></input>
             <button
               type="submit"
-              // onClick={() => setIsModalOpen(false)}
               className="mt-10 p-3 bg-secodary text-white text-s rounded-md"
             >
               Submit
