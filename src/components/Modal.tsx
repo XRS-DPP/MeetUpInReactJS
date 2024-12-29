@@ -13,6 +13,7 @@ type Event = {
   title: string;
   description: string;
   startTime: string;
+  endTime: string;
   location: string;
   image: string;
   status: string;
@@ -67,7 +68,7 @@ const Modal = ({
               setIsModalOpen(false), setConfirmGoing(true);
               setEventList((prev) => {
                 return prev.map((item) => {
-                  if (item.id === +id) {
+                  if (item.id === +id!) {
                     return {
                       ...item,
                       interestedCount: item.interestedCount + 1,

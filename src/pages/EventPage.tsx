@@ -5,6 +5,8 @@ import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
 import { MapPin } from 'lucide-react';
 
+declare var google: any;
+
 type User = {
   firstName: string;
   lastName: string;
@@ -16,6 +18,7 @@ type Event = {
   title: string;
   description: string;
   startTime: string;
+  endTime: string;
   location: string;
   image: string;
   status: string;
@@ -27,6 +30,14 @@ type Props = {
   setEventList: React.Dispatch<SetStateAction<Event[]>>;
 };
 
+type TokenResponseType = {
+  access_token: string;
+  authuser: string;
+  expires_in: number;
+  prompt: string;
+  scope: string;
+  token_type: string;
+};
 const EventPage = ({ setEventList, eventList }: Props) => {
   const { id } = useParams();
   const { auth } = useContext(AuthContext);
@@ -40,13 +51,13 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
   //states for google calendar API communication
-  const [accessToken, setAccessToken] = useState<null | string>(null);
   const [loading, setLoading] = useState<boolean>(false);
+
   const [isEventAddedToCalendar, setIsEventAddedToCalendar] =
     useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
 
-  const event = eventList.find((item) => item.id === +id);
+  const event = eventList.find((item) => item.id === +id!);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -80,9 +91,9 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     const client = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
-      callback: (tokenResponse) => {
+      callback: (tokenResponse: TokenResponseType) => {
+        console.log(tokenResponse);
         //tokenResponse is an object and token is saved on access_token
-        setAccessToken(tokenResponse.access_token);
         postEventToCalendar(tokenResponse.access_token);
       },
     });
@@ -107,9 +118,9 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   //   }
   // };
 
-  const postEventToCalendar = (accessToken) => {
-    const startTimeISO = new Date(event?.startTime).toISOString();
-    const endTimeISO = new Date(event?.endTime).toISOString();
+  const postEventToCalendar = (accessToken: string) => {
+    const startTimeISO = new Date(event!.startTime).toISOString();
+    const endTimeISO = new Date(event!.endTime).toISOString();
     const eventToAdd = {
       summary: event?.title,
       location: event?.location,
@@ -132,26 +143,31 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     };
 
     // Send POST request to create the event
-    fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(eventToAdd),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.error) {
-          setErrMsg(
-            data.error.errors.map((errObj) => errObj.message).join('\n'),
-          );
-        } else setIsEventAddedToCalendar(true);
+
+    if (accessToken.length > 0) {
+      fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(eventToAdd),
       })
-      .catch((error) => {
-        alert('Error');
-        setErrMsg(error.messeage);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            setErrMsg(
+              data.error.errors
+                .map((errObj: { message: string }) => errObj.message)
+                .join('\n'),
+            );
+          } else setIsEventAddedToCalendar(true);
+        })
+        .catch((error) => {
+          alert('Error');
+          setErrMsg(error.messeage);
+        });
+    }
   };
 
   if (!event && isDeleted)
@@ -214,6 +230,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             type="button"
             onClick={() => handleButtonClick()}
             className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer"
+            disabled={loading}
           >
             Add Event To Calendar
           </button>

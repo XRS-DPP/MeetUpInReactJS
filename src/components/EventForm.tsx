@@ -1,17 +1,25 @@
+import { FormEventHandler } from 'react';
+
+type Event = {
+  id: number;
+  title: string;
+  description: string;
+  startTime: string;
+  location: string;
+  image: string;
+  status: string;
+  interestedCount: number;
+};
 type Props = {
-  eventInput: {
-    id: 0;
-    title: '';
-    description: '';
-    startTime: '';
-    location: '';
-    image: '';
-    status: 'live';
-    interestedCount: 0;
-  };
+  eventInput: Event;
   name: string;
-  handleEventInputChange: () => {};
-  handleSubmitForm: () => {};
+  handleEventInputChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => void;
+
+  handleSubmitForm: FormEventHandler<HTMLFormElement>;
 };
 
 export const EventForm = ({

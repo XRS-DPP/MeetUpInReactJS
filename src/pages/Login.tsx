@@ -1,10 +1,10 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { FormEvent, useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
 
 export const Login = () => {
   const admin = { email: 'admin@meetupnow.com', password: '123!' };
-  const userRef = useRef<HTMLInputElement | undefined>();
+  const userRef = useRef<HTMLInputElement | null>(null);
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
@@ -20,7 +20,7 @@ export const Login = () => {
     setInput((pre) => ({ ...pre, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.email === admin.email && input.password === admin.password) {
       setIsLoggedin(true);
