@@ -30,7 +30,6 @@ type Props = {
   setIsModalOpen: React.Dispatch<React.SetStateAction<Boolean>>;
   setConfirmGoing: React.Dispatch<React.SetStateAction<Boolean>>;
   setEventList: React.Dispatch<React.SetStateAction<Event[]>>;
-  event: Event;
 };
 
 const Modal = ({
