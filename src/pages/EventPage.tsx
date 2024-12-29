@@ -142,7 +142,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('google api replied:', data);
         if (data.error) {
           setErrMsg(
             data.error.errors.map((errObj) => errObj.message).join('\n'),
