@@ -11,7 +11,7 @@ const Header = () => {
     <div className="flex p-3 border-b-2 mb-2 mt-2">
       <Link
         to="/events"
-        className="mr-auto text-secodary font-bold tracking-widest font-mono italic"
+        className="mr-auto text-secodary font-bold tracking-widest font-Poppins text-s italic"
       >
         MeetUpNow
       </Link>
