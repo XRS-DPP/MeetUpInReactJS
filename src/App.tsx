@@ -25,7 +25,7 @@ function App() {
   }, [eventList]);
 
   return (
-    <div className="w-full max-w-full mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%] px-1">
+    <div className="w-full max-w-full mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%] px-1 md:py-2">
       <div>
         <Header></Header>
         <Routes>
