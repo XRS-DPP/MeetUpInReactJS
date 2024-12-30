@@ -82,6 +82,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
 
   const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
   const SCOPES = import.meta.env.VITE_SCOPES;
+  console.log(CLIENT_ID);
 
   const handleButtonClick = async () => {
     setErrMsg('');
@@ -92,13 +93,13 @@ const EventPage = ({ setEventList, eventList }: Props) => {
       client_id: CLIENT_ID,
       scope: SCOPES,
       callback: (tokenResponse: TokenResponseType) => {
-        console.log(tokenResponse);
         //tokenResponse is an object and token is saved on access_token
         postEventToCalendar(tokenResponse.access_token);
       },
     });
 
     client.requestAccessToken();
+    setLoading(false);
   };
 
   // const loadCalendar = (accessToken) => {
@@ -218,6 +219,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
         {confirmGoing && (
           <p className="text-xs mt-2 text-orange-600">You are going!</p>
         )}
+        {loading && <p>Loading...</p>}
         {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
         {isEventAddedToCalendar && (
           <p className="text-xs mt-2 text-orange-600">
@@ -230,7 +232,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
             type="button"
             onClick={() => handleButtonClick()}
             className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer"
-            disabled={loading}
           >
             Add Event To Calendar
           </button>
