@@ -1,9 +1,13 @@
 import { FormEvent, useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
+import bcrypt from 'bcryptjs';
 
 export const Login = () => {
-  const admin = { email: 'admin@meetupnow.com', password: '123!' };
+  // for simulating login flow, however password hasing should be processed on backend
+  const hardcodedEmail = 'admin@meetupnow.com';
+  const myPlainPassword = '123!';
+  const hashedPassword = bcrypt.hashSync(myPlainPassword, 10);
   const userRef = useRef<HTMLInputElement | null>(null);
   const [input, setInput] = useState({ email: '', password: '' });
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
@@ -22,11 +26,15 @@ export const Login = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (input.email === admin.email && input.password === admin.password) {
+    if (
+      input.email === hardcodedEmail &&
+      bcrypt.compareSync(input.password, hashedPassword)
+    ) {
       setIsLoggedin(true);
       setAuth(true);
+    } else {
+      setErrMsg('Email and password do not match');
     }
-    setErrMsg('Email and password do not match');
   };
 
   return (

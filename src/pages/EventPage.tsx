@@ -50,9 +50,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     confirmEmail: '',
   });
   const [isDeleted, setIsDeleted] = useState<boolean>(false);
-  //states for google calendar API communication
   const [loading, setLoading] = useState<boolean>(false);
-
   const [isEventAddedToCalendar, setIsEventAddedToCalendar] =
     useState<boolean>(false);
   const [errMsg, setErrMsg] = useState('');
@@ -82,7 +80,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
 
   const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
   const SCOPES = import.meta.env.VITE_SCOPES;
-  console.log(CLIENT_ID);
 
   const handleButtonClick = async () => {
     setErrMsg('');
@@ -127,10 +124,9 @@ const EventPage = ({ setEventList, eventList }: Props) => {
       location: event?.location,
       description: event?.description,
       start: {
-        // Use ISO 8601 format for the start date and time
-        // dateTime: '2024-12-27T09:00:00-07:00',
+        // Use ISO 8601 format for the start date and time. eg dateTime: '2024-12-27T09:00:00-07:00',
         dateTime: startTimeISO,
-        // timeZone: 'Europe/London',
+        timeZone: 'Europe/London',
       },
       end: {
         dateTime: endTimeISO,
@@ -144,7 +140,6 @@ const EventPage = ({ setEventList, eventList }: Props) => {
     };
 
     // Send POST request to create the event
-
     if (accessToken.length > 0) {
       fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
         method: 'POST',
@@ -156,6 +151,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
       })
         .then((response) => response.json())
         .then((data) => {
+          // google sends error on on data obj
           if (data.error) {
             setErrMsg(
               data.error.errors
@@ -179,80 +175,90 @@ const EventPage = ({ setEventList, eventList }: Props) => {
   if (!event && !isDeleted) return <p className="p-2 mt-5">Event not found</p>;
   if (event)
     return (
-      <div className="p-3 w-full flex flex-col  font-Poppins">
-        <div className="flex flex-col gap-2 flex-1">
-          <img
-            src={event.image}
-            alt="event image"
-            className="rounded-lg aspect-video "
-          ></img>
+      <div className="flex items-center justify-center">
+        <div className="p-3 w-full flex flex-col font-Poppins md:w-[80%]">
+          <div className="flex flex-col gap-2 flex-1">
+            <img
+              src={event.image}
+              alt="event image"
+              className="rounded-lg aspect-video w-full mx-auto"
+            ></img>
 
-          <p className="font-semibold text-m text-primary">{event.title}</p>
-          <p className="text-xs">{event?.description}</p>
-          <div className="text-xs flex items-start gap-1">
-            <span className="inline-block">
-              <MapPin color="gray" size={22} />
-            </span>
-            <span>{event.location}</span>
-          </div>
-          <p className="font-xs text-secodary font-semibold">
-            {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
-          </p>
-          {auth && (
-            <div className="flex gap-3 mt-3">
-              <button
-                onClick={handleUpdate}
-                className="px-2 text-xxs bg-secodary rounded-lg text-white"
-              >
-                Update
-              </button>
+            <div>
+              <p className="font-semibold text-m text-primary">{event.title}</p>
+              <p className="text-xs">{event?.description}</p>
+              <div className="text-xs flex items-start gap-1">
+                <span className="inline-block">
+                  <MapPin color="gray" size={22} />
+                </span>
+                <span>{event.location}</span>
+              </div>
 
-              <button
-                onClick={() => handleDelete(+id!)}
-                className="px-3 py-2 text-xxs bg-red-500 rounded-lg text-white"
-              >
-                Delete
-              </button>
+              <p className="font-xs text-secodary font-semibold">
+                {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
+              </p>
             </div>
+
+            {auth && (
+              <div className="flex gap-3 mt-3">
+                <button
+                  onClick={handleUpdate}
+                  className="px-2 text-xxs bg-secodary rounded-lg text-white"
+                >
+                  Update
+                </button>
+
+                <button
+                  onClick={() => handleDelete(+id!)}
+                  className="px-3 py-2 text-xxs bg-red-500 rounded-lg text-white"
+                >
+                  Delete
+                </button>
+              </div>
+            )}
+
+            {confirmGoing && (
+              <p className="text-xs mt-2 text-orange-600">You are going!</p>
+            )}
+            {loading && <p>Loading...</p>}
+            {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
+            {isEventAddedToCalendar && (
+              <p className="text-xs mt-2 text-orange-600">
+                Event is added to calendar
+              </p>
+            )}
+
+            <div className="flex mt-auto">
+              {confirmGoing ? (
+                <button
+                  type="button"
+                  onClick={() => handleButtonClick()}
+                  className="bg-secodary text-white font-normal text-xs py-3 rounded-lg w-full cursor-pointer"
+                >
+                  Add Event To Calendar
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-secodary text-white font-normal text-xs py-3 rounded-lg w-full cursor-pointer "
+                >
+                  Join & RSVP
+                </button>
+              )}
+            </div>
+          </div>
+
+          {isModalOpen && (
+            <Modal
+              user={user}
+              setUser={setUser}
+              setIsModalOpen={setIsModalOpen}
+              setConfirmGoing={setConfirmGoing}
+              setEventList={setEventList}
+            ></Modal>
           )}
         </div>
-        {confirmGoing && (
-          <p className="text-xs mt-2 text-orange-600">You are going!</p>
-        )}
-        {loading && <p>Loading...</p>}
-        {errMsg && <p>Event can't be added to calendar due to {errMsg}</p>}
-        {isEventAddedToCalendar && (
-          <p className="text-xs mt-2 text-orange-600">
-            Event is added to calendar
-          </p>
-        )}
-
-        {confirmGoing ? (
-          <button
-            type="button"
-            onClick={() => handleButtonClick()}
-            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer"
-          >
-            Add Event To Calendar
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => setIsModalOpen(true)}
-            className="bg-secodary text-white font-normal text-xs py-3 rounded-lg absolute bottom-1 left-2 right-2 cursor-pointer "
-          >
-            Join & RSVP
-          </button>
-        )}
-        {isModalOpen && (
-          <Modal
-            user={user}
-            setUser={setUser}
-            setIsModalOpen={setIsModalOpen}
-            setConfirmGoing={setConfirmGoing}
-            setEventList={setEventList}
-          ></Modal>
-        )}
       </div>
     );
 };

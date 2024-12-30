@@ -20,7 +20,7 @@ const Header = () => {
           <Link className="pr-2" to={'/events/create'}>
             <CirclePlus size={22} />
           </Link>
-          <Link to="/" onClick={handleLogOut}>
+          <Link to="/login" onClick={handleLogOut}>
             <LogOut size={22} color="black" />
           </Link>
         </div>

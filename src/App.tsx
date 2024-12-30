@@ -25,36 +25,38 @@ function App() {
   }, [eventList]);
 
   return (
-    <div>
-      <Header></Header>
-      <Routes>
-        <Route path="/" element={<LandingPage />}></Route>
-        <Route
-          path="/events"
-          element={<EventList eventList={eventList} />}
-        ></Route>
-        <Route
-          path="/events/create"
-          element={
-            <CreateEvent eventList={eventList} setEventList={setEventList} />
-          }
-        ></Route>
-        <Route
-          path="/events/:id"
-          element={
-            <EventPage eventList={eventList} setEventList={setEventList} />
-          }
-        ></Route>
+    <div className="w-full max-w-full mx-auto md:max-w-[80%] lg:max-w-[70%] xl:max-w-[60%] px-1">
+      <div>
+        <Header></Header>
+        <Routes>
+          <Route path="/" element={<LandingPage />}></Route>
+          <Route
+            path="/events"
+            element={<EventList eventList={eventList} />}
+          ></Route>
+          <Route
+            path="/events/create"
+            element={
+              <CreateEvent eventList={eventList} setEventList={setEventList} />
+            }
+          ></Route>
+          <Route
+            path="/events/:id"
+            element={
+              <EventPage eventList={eventList} setEventList={setEventList} />
+            }
+          ></Route>
 
-        <Route
-          path="/events/:id/edit"
-          element={
-            <EditEvent eventList={eventList} setEventList={setEventList} />
-          }
-        ></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/*" element={<NotFound />}></Route>
-      </Routes>
+          <Route
+            path="/events/:id/edit"
+            element={
+              <EditEvent eventList={eventList} setEventList={setEventList} />
+            }
+          ></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
+        </Routes>
+      </div>
     </div>
   );
 }
