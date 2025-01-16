@@ -8,7 +8,7 @@ Create Events: Staff can create new events with all necessary details (title, de
 Update Events: Staff can update existing events.\
 Delete Events: Staff can delete events.\
 Admin user account:
-email: admin@meetpupnow.com\
+email: admin@meetupnow.com\
 password: 123!\
 Please use above account info to finish authentication to explore the platform.\
 
