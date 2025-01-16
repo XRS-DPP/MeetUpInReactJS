@@ -25,14 +25,18 @@ const LandingPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center">
-        <h1
-          className="box-progress text-s text-secodary"
-          data-text="loading..."
-        >
-          loading...
-        </h1>
-        <span className="box-text text-secodary">{number}%</span>
+      <div className="flex items-center justify-center p-3">
+        <div className="flex flex-col justify-center">
+          <h1
+            className="box-progress text-s text-secodary"
+            data-text="loading..."
+          >
+            loading... <span className="box-text text-secodary">{number}%</span>
+          </h1>
+          <p className="text-orange-500 mt-5 ">
+            Discover our community events, and save it to your google calender!
+          </p>
+        </div>
       </div>
     );
   }
