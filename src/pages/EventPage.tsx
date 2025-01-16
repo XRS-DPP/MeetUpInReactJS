@@ -162,7 +162,7 @@ const EventPage = ({ setEventList, eventList }: Props) => {
         })
         .catch((error) => {
           alert('Error');
-          setErrMsg(error.messeage);
+          setErrMsg(error.message);
         });
     }
   };
