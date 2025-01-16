@@ -10,6 +10,7 @@ import CreateEvent from './pages/CreateEvent';
 import NotFound from './components/NotFound';
 import EditEvent from './pages/EditEvent';
 import './App.css';
+import Help from './pages/Help';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
@@ -54,6 +55,7 @@ function App() {
             }
           ></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/help" element={<Help />}></Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </div>
