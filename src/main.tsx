@@ -7,7 +7,7 @@ import { AuthProvider } from './contexts/Auth.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter basename="/MeetUpInReactJS">
+    <HashRouter>
       <AuthProvider>
         <App />
       </AuthProvider>
