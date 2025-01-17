@@ -25,15 +25,16 @@ const LandingPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-3">
-        <div className="flex flex-col justify-center">
-          <h1
+      <div className="flex items-center justify-center p-3 w-full h-full mt-10">
+        <div className="flex flex-col items-center">
+          <p
             className="box-progress text-s text-secodary"
             data-text="loading..."
           >
-            loading... <span className="box-text text-secodary">{number}%</span>
-          </h1>
-          <p className="text-orange-500 mt-5 ">
+            loading... <span className="box-text text-m">{number}%</span>
+          </p>
+
+          <p className=" bg-secodary text-white mt-10 p-3 rounded-lg font-semibold">
             Discover our community events, and save it to your google calender!
           </p>
         </div>
