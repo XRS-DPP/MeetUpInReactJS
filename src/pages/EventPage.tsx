@@ -4,6 +4,7 @@ import { SetStateAction, useContext, useEffect, useState } from 'react';
 import Modal from '../components/Modal';
 import { AuthContext } from '../contexts/Auth';
 import { MapPin } from 'lucide-react';
+import Footer from '../components/Footer';
 
 declare var google: any;
 
