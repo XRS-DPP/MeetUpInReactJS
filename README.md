@@ -29,11 +29,26 @@ Before you can run or contribute to this project, make sure you have node instal
   npm install npm@latest -g
   ```
 ### Installation:
-1. Clone the repository **`git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
-2. Navigate to the project folder : **`cd MeetUpInReactJS`**,
-3. Install dependencies: **`npm install`**
-4. Build the project: **`npm run build`**
-5. Start the project: **`npm start`**
+1. Clone the repository
+   ```sh
+   git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git
+   ```
+2. Navigate to the project folder :
+```sh
+cd MeetUpInReactJS
+```
+3. Install dependencies:
+```sh
+npm install
+```
+4. Build the project:
+```sh
+npm run build
+```
+5. Start the project:
+```sh
+npm start
+```
 
 Node.js: Minimum version v20.18.1
 
