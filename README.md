@@ -12,7 +12,8 @@ Admin user account: email:
 ```sh
 admin@meetupnow.com
 ```
-password: ```sh 
+password: 
+```sh 
 123!
 ```
 1. Login: Community staff can log into the app and login is required to manage events
