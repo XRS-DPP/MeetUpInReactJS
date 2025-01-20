@@ -1,9 +1,7 @@
 ## __MeetUpNow__
-
-## __Introduction__:
-
 MeetUpNow is a platform where community staffs can create and share events with members of the community and community members can view events, register their attendance and add events to their google calendar.
 
+## __Introduction__:
 Features:
 For Community Staff (Admin Role):
 Login: Community staff can log into the app and login is required to manage events.\
@@ -20,8 +18,7 @@ View Events: Community members can view a list of events or individual event pag
 Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending).\
 Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications.\
 
-## __Introduction__:
-
+## __Installation__:
 1. Clone the repository git clone **`git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
 2. Navigate to the project folder : **`cd MeetUpInReactJS`**,
 3. Install dependencies: **`npm install`**
@@ -31,9 +28,7 @@ Google Calendar Integration: Members can add events directly to their Google Cal
 Node.js: Minimum version v20.18.1
 
 ## **Contributing**
-
 If you'd like to contribute to Project Title, here are some guidelines:
-
 1. Fork the repository.
 2. Create a new branch for your changes.
 3. Make your changes.
