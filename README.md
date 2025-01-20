@@ -23,7 +23,6 @@ Admin user account: email: admin@meetupnow.com password: 123!
 Before you can run or contribute to this project, make sure you have node installed
 
 ### Prerequisites
-+ Node.js
 * npm
   ```sh
   npm install npm@latest -g
