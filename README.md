@@ -2,7 +2,6 @@
 MeetUpNow is a platform where community staffs can create and share events with members of the community and community members can view events, register their attendance and add events to their google calendar.
 
 ## __Link To the Hosted Version__
-[click here](https://xiaoru-sun.github.io/MeetUpInReactJS/)
 https://xiaoru-sun.github.io/MeetUpInReactJS/
 
 ## __Introduction__:
