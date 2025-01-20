@@ -1,4 +1,7 @@
-Summary of the Project:
+## __MeetUpNow__
+
+## __Introduction__:
+
 MeetUpNow is a platform where community staffs can create and share events with members of the community and community members can view events, register their attendance and add events to their google calendar.
 
 Features:
@@ -17,11 +20,25 @@ View Events: Community members can view a list of events or individual event pag
 Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending).\
 Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications.\
 
-Local SetUp Instructions:
+## __Introduction__:
 
-1. Clone the repository git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git
-2. Navigate to the project folder : cd MeetUpInReactJS,
-3. Install the dependencies: npm install,
-4. Run the application locally: npm run dev
+1. Clone the repository git clone **`git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
+2. Navigate to the project folder : **`cd MeetUpInReactJS`**,
+3. Install dependencies: **`npm install`**
+4. Build the project: **`npm run build`**
+5. Start the project: **`npm start`**
 
 Node.js: Minimum version v20.18.1
+
+## **Contributing**
+
+If you'd like to contribute to Project Title, here are some guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your changes.
+3. Make your changes.
+4. Write tests to cover your changes.
+5. Run the tests to ensure they pass.
+6. Commit your changes.
+7. Push your changes to your forked repository.
+8. Submit a pull request.
