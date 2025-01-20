@@ -27,7 +27,7 @@ Before you can run or contribute to this project, make sure you have node instal
   ```sh
   npm install npm@latest -g
   ```
-### __Installation__:
+### Installation:
 1. Clone the repository **`git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
 2. Navigate to the project folder : **`cd MeetUpInReactJS`**,
 3. Install dependencies: **`npm install`**
