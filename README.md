@@ -39,7 +39,7 @@ Node.js: Minimum version v20.18.1
 ## **Contributing**
 If you have a suggestion that would make this better, please fork the repo and create a pull request. Thanks!
 1. Fork the repository
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
 3. Make your changes
 4. Write tests to cover your changes
 5. Run the tests to ensure they pass
