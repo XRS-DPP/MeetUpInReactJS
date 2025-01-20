@@ -34,21 +34,21 @@ Before you can run or contribute to this project, make sure you have node instal
    git clone git@github.com:Xiaoru-Sun/MeetUpInReactJS.git
    ```
 2. Navigate to the project folder :
-```sh
-cd MeetUpInReactJS
-```
+   ```sh
+   cd MeetUpInReactJS
+   ```
 3. Install dependencies:
-```sh
-npm install
-```
+   ```sh
+   npm install
+   ```
 4. Build the project:
-```sh
-npm run build
-```
+   ```sh
+   npm run build
+   ```
 5. Start the project:
-```sh
-npm start
-```
+   ```sh
+   npm start
+   ```
 
 Node.js: Minimum version v20.18.1
 
