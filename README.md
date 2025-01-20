@@ -20,24 +20,15 @@ Admin user account: email: admin@meetupnow.com password: 123!
 3. Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications
 
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Before you can run or contribute to this project, make sure you have node installed
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
++ Node.js
 * npm
   ```sh
   npm install npm@latest -g
   ```
 ### __Installation__:
-
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 1. Clone the repository git clone **`git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
 2. Navigate to the project folder : **`cd MeetUpInReactJS`**,
 3. Install dependencies: **`npm install`**
