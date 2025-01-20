@@ -1,4 +1,5 @@
 import { EventCard } from './EventCard';
+import Footer from './Footer';
 
 type User = {
   firstName: string;
@@ -27,6 +28,7 @@ const EventList = ({ eventList }: EventListProps) => {
       {eventList.map((event: Event, index: number) => {
         return <EventCard event={event} index={index} key={index} />;
       })}
+      <Footer />
     </>
   );
 };
