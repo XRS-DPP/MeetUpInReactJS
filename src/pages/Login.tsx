@@ -6,7 +6,7 @@ import bcrypt from 'bcryptjs';
 export const Login = () => {
   // for simulating login flow, however password hasing should be processed on backend
   const hardcodedEmail = 'admin@meetupnow.com';
-  const myPlainPassword = '123!';
+  const myPlainPassword = '@MeetUp2025!';
   const hashedPassword = bcrypt.hashSync(myPlainPassword, 10);
   const userRef = useRef<HTMLInputElement | null>(null);
   const [input, setInput] = useState({ email: '', password: '' });
