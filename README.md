@@ -1,5 +1,5 @@
 ## __MeetUpNow__
-MeetUpNow is a platform where community staffs can create and share events with members of the community and community members can view events, register their attendance and add events to their google calendar.
+MeetUpNow makes it easy for community leaders to create and share events, and for members to stay in the loop. Whether you’re looking to join a local event, RSVP, or add it straight to your Google Calendar, everything’s right at your fingertips. It's a simple way to stay connected with what’s happening in your community—no hassle, just a few clicks.
 
 ## __Link To the Hosted Version__
 https://xiaoru-sun.github.io/MeetUpInReactJS/
@@ -7,19 +7,17 @@ https://xiaoru-sun.github.io/MeetUpInReactJS/
 ## __Introduction__:
 Features:
 For Community Staff (Admin Role):
-Login: Community staff can log into the app and login is required to manage events.\
-Create Events: Staff can create new events with all necessary details (title, description, datetime, location, etc.).\
-Update Events: Staff can update existing events.\
-Delete Events: Staff can delete events.\
-Admin user account:
-email: admin@meetupnow.com\
-password: 123!\
 Please use above account info to finish authentication to explore the platform.\
+Admin user account: email: admin@meetupnow.com password: 123!\
+1. Login: Community staff can log into the app and login is required to manage events.\
+2. Create Events: Staff can create new events with all necessary details (title, description, datetime, location, etc.).\
+3. Update Events: Staff can update existing events.\
+4. Delete Events: Staff can delete events.\
 
 For Community Members:
-View Events: Community members can view a list of events or individual event page.\
-Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending).\
-Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications.\
+1. View Events: Community members can view a list of events or individual event page.\
+2. Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending).\
+3. Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications.\
 
 ## __Installation__:
 1. Clone the repository git clone **`git@github.com:Xiaoru-Sun/MeetUpInReactJS.git`**
