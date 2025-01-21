@@ -18,7 +18,7 @@ Password: @MeetUp2025!
 
 - For Community Members:
 1. View Events: Community members can view a list of events or individual event page
-2. Register Attendance: Community members can register for events (e.g., RSVP, mark themselves as attending)
+2. Register Attendance: Community members can register for events (e.g.mark themselves as attending)
 3. Google Calendar Integration: Members can add events directly to their Google Calendars for reminders and notifications
 
 ## Getting Started
