@@ -7,10 +7,10 @@ https://xiaoru-sun.github.io/MeetUpInReactJS/
 ## __Introduction__:
 Features:
 - For Community Staff (Admin Role):
-Please use below account info to finish authentication to explore the platform <br>
+Please use the account info below to finish authentication to explore the platform <br>
 Email: admin@meetupnow.com  Password: @MeetUp2025!
 
-1. Login: Community staff can log into the app and login is required to manage events
+1. Login: Community staff must log into the app to manage events
 2. Create Events: Staff can create new events with all necessary details (title, description, datetime, location, etc.)
 3. Update Events: Staff can update existing events
 4. Delete Events: Staff can delete events
