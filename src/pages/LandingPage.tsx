@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../components/Footer';
 
 const LandingPage = () => {
   const [loading, setLoading] = useState(true);
@@ -25,8 +26,8 @@ const LandingPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center p-3 w-full h-full mt-10">
-        <div className="flex flex-col items-center">
+      <div className="flex flex-col h-screen justify-around">
+        <div className="flex flex-col items-center p-3 flex-grow">
           <p
             className="box-progress text-s text-secodary"
             data-text="loading..."
@@ -37,6 +38,9 @@ const LandingPage = () => {
           <p className=" bg-secodary text-white mt-10 p-3 rounded-lg font-semibold">
             Discover our community events, and save it to your google calender!
           </p>
+        </div>
+        <div className="h-[27%]">
+          <Footer />
         </div>
       </div>
     );
