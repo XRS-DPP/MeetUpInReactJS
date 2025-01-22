@@ -27,9 +27,9 @@ function App() {
 
   return (
     <div className="w-full px-4 md:px-8">
-      <div className="flex flex-col min-h-screen">
+      <div className="flex-grow flex flex-col min-h-screen">
         <Header></Header>
-        <main className="flex-grow w-full md:max-w-[80%] mx-auto">
+        <main className=" w-full md:max-w-[80%] mx-auto">
           <Routes>
             <Route path="/" element={<LandingPage />}></Route>
             <Route
