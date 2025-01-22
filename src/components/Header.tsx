@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center p-2 border-b-2 relative mt-4">
+    <div className="flex justify-between items-center p-3 border-b-2 relative mt-4 md:my-10">
       <Link
         to="/events"
         className="mr-auto text-secodary font-bold tracking-widest font-Poppins text-m italic"
@@ -31,22 +31,23 @@ const Header = () => {
       </button>
 
       <div className="hidden md:flex space-x-6">
-        <p className="text-purple-500">Debugging visible on small screen</p>
         <Link
           to="/events"
           className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+          onClick={toggleMenu}
         >
           Find Events
         </Link>
         <Link
           to="/help"
           className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+          onClick={toggleMenu}
         >
           Help Center
         </Link>
         {auth ? (
           <div className="flex items-center space-x-4">
-            <Link className="pr-2" to="/events/create">
+            <Link className="pr-2" to="/events/create" onClick={toggleMenu}>
               <CirclePlus size={22} />
             </Link>
             <button
@@ -61,12 +62,14 @@ const Header = () => {
             <Link
               to="/login"
               className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
             >
               Log In
             </Link>
             <Link
               to="/signup"
               className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
             >
               Sign Up
             </Link>
@@ -84,12 +87,14 @@ const Header = () => {
             <Link
               to="/events"
               className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
             >
               Find Events
             </Link>
             <Link
               to="/help"
               className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
             >
               Help Center
             </Link>
@@ -98,16 +103,18 @@ const Header = () => {
                 <Link
                   to="/events/create"
                   className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
                 >
-                  <CirclePlus size={22} className="inline-block mr-2" /> Create
-                  Event
+                  {/* <CirclePlus size={22} className="inline-block mr-2" />  */}
+                  Create Event
                 </Link>
-                <button
+                <Link
+                  to="/events/"
                   onClick={handleLogOut}
                   className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
                 >
                   Log Out
-                </button>
+                </Link>
               </>
             ) : (
               // Not Authenticated: Show Log In and Sign Up
@@ -115,12 +122,14 @@ const Header = () => {
                 <Link
                   to="/login"
                   className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
                 >
                   Log In
                 </Link>
                 <Link
                   to="/signup"
                   className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
                 >
                   Sign Up
                 </Link>
