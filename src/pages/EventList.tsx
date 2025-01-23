@@ -28,7 +28,9 @@ const EventList = ({ eventList }: EventListProps) => {
     <>
       <div className="flex flex-col items-center justify-center">
         <MainBanner />
-        <h1>All Events</h1>
+        <h1 className="text-left w-full px-3 py-2 font-bold text-secodary text-s font-Poppins border-b-2 border-b-gray-200 mb-5">
+          Explore All Events
+        </h1>
         {eventList.map((event: Event, index: number) => {
           return <EventCard event={event} index={index} key={index} />;
         })}
