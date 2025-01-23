@@ -1,6 +1,6 @@
 const MainBanner = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-start w-full h-[30vh] space-y-4 md:space-y-0 md:mb-6">
+    <div className="flex flex-col md:flex-row items-center justify-start w-full min-h-[30vh] space-y-3 md:space-y-0 md:mb-1 mt-2">
       <p className="sm: px-3 w-full md:w-[50%] py-4 md:px-4 md:py-0 md:text-left leading-relaxed font-Poppins font-semibold text-primary">
         Our community is all about connection. Whether you’re new or have lived
         here for years, there's always a place for you. From casual meetups to

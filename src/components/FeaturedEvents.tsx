@@ -27,7 +27,7 @@ const FeaturedEvents = ({ featuredEvents }: FeaturedEventsProps) => {
       <div className="flex items-center justify-between flex-wrap p-3">
         {featuredEvents.map((event: Event, index: number) => {
           return (
-            <div className="flex-grow mr-auto w-[33%]">
+            <div className="flex-grow mr-auto w-[33%]" key={index}>
               <img
                 src={event.image}
                 alt="event image"

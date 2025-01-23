@@ -11,7 +11,7 @@ import NotFound from './components/NotFound';
 import EditEvent from './pages/EditEvent';
 import './App.css';
 import Help from './pages/Help';
-import SignUp from './components/SignUp';
+import SignUp from './pages/SignUp';
 
 function App() {
   const STORE_KEY = 'EVENTS_STORE';
