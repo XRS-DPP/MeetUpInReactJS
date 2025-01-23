@@ -1,33 +1,142 @@
-import { CirclePlus, LogOut, User } from 'lucide-react';
-import { useContext } from 'react';
+import { CirclePlus, Menu } from 'lucide-react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
 
 const Header = () => {
   const { auth, setAuth } = useContext(AuthContext);
-  const handleLogOut = () => setAuth(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen((prevState) => !prevState);
+  };
+  const handleLogOut = () => {
+    setAuth(false);
+    setMenuOpen(false);
+  };
 
   return (
-    <div className="flex p-3 border-b-2 mb-2 mt-2">
+    <div className="flex justify-between items-center p-3 border-b-2 relative mt-4 md:my-10">
       <Link
         to="/events"
-        className="mr-auto text-secodary font-bold tracking-widest font-Poppins text-s italic"
+        className="mr-auto text-secodary font-bold tracking-widest font-Poppins text-m "
       >
         MeetUpNow
       </Link>
-      {auth ? (
-        <div className="flex items-center ">
-          <Link className="pr-2" to={'/events/create'}>
-            <CirclePlus size={22} />
-          </Link>
-          <Link to="/login" onClick={handleLogOut}>
-            <LogOut size={22} color="black" />
-          </Link>
-        </div>
-      ) : (
-        <Link to="/login">
-          <User size={22} strokeWidth="2px" />
+      <button
+        className="md:hidden p-2"
+        onClick={toggleMenu}
+        aria-label="Toggle menu"
+      >
+        <Menu size={24} />
+      </button>
+
+      <div className="hidden md:flex space-x-6">
+        <Link
+          to="/events"
+          className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+          onClick={toggleMenu}
+        >
+          Find Events
         </Link>
+        {auth ? (
+          <div className="flex items-center space-x-4">
+            <Link className="pr-2" to="/events/create" onClick={toggleMenu}>
+              <CirclePlus size={22} />
+            </Link>
+            <button
+              onClick={handleLogOut}
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+            >
+              Log Out
+            </button>
+          </div>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
+            >
+              Log In
+            </Link>
+            <Link
+              to="/signup"
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
+            >
+              Sign Up
+            </Link>
+          </>
+        )}
+        <Link
+          to="/help"
+          className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+          onClick={toggleMenu}
+        >
+          Help Center
+        </Link>
+      </div>
+
+      {menuOpen && (
+        <div
+          className={`md:hidden transition-all duration-300 ease-in-out ${
+            menuOpen ? 'block' : 'hidden'
+          } absolute top-16 left-0 w-full bg-white p-4 z-50`}
+        >
+          <div className="flex flex-col">
+            <Link
+              to="/events"
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
+            >
+              Find Events
+            </Link>
+            {auth ? (
+              <>
+                <Link
+                  to="/events/create"
+                  className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
+                >
+                  {/* <CirclePlus size={22} className="inline-block mr-2" />  */}
+                  Create Event
+                </Link>
+                <Link
+                  to="/events/"
+                  onClick={handleLogOut}
+                  className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                >
+                  Log Out
+                </Link>
+              </>
+            ) : (
+              // Not Authenticated: Show Log In and Sign Up
+              <>
+                <Link
+                  to="/login"
+                  className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
+                >
+                  Log In
+                </Link>
+                <Link
+                  to="/signup"
+                  className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+                  onClick={toggleMenu}
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
+            <Link
+              to="/help"
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
+            >
+              Help Center
+            </Link>
+          </div>
+        </div>
       )}
     </div>
   );
