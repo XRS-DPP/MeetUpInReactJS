@@ -32,7 +32,7 @@ export const EventCard = ({ event, index }: Props) => {
         <img
           src={event.image}
           alt="event image"
-          className="ml-2 w-[36%] aspect-video"
+          className="ml-2 w-[36%] aspect-video rounded-lg"
         ></img>
       </div>
 
