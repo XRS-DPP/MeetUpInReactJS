@@ -1,318 +1,341 @@
 [
   {
     "id": 1,
-    "title": "Food Truck Festival",
-    "description": "A festival celebrating the best food trucks in the city. Enjoy gourmet food, live music, and a fun atmosphere. Bring your friends and family!",
-    "startTime": "2024-11-25T11:00:00",
-    "endTime": "2024-11-25T13:00:00",
-    "location": "Central Park, New York",
-    "image": "https://www.copleyfra.com/uploads/5/2/4/0/5240965/header_images/1708358155.jpg",
-    "status": "expired",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "John",
-          "lastName": "Doe",
-          "email": "email1@example.com",
-          "confirmEmail": "email1@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Jane",
-          "lastName": "Smith",
-          "email": "email2@example.com",
-          "confirmEmail": "email2@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "title": "Tech Conference 2024",
-    "description": "Discover the latest trends in technology and innovation at this year’s Tech Innovations Conference. Keynotes by industry leaders and hands-on workshops.",
-    "startTime": "2024-12-10T09:00:00",
-    "endTime": "2024-12-10T17:00:00",
-    "location": "Silicon Valley Convention Center, California",
-    "image": "https://miro.medium.com/v2/resize:fit:1400/1*sPBpIz2pxw6AydB2LyDh8w.png",
+    "title": "Community Hiking: Discover Epping Forest",
+    "description": "Join us for a relaxing, low-key hike through the beautiful Epping Forest. This family-friendly event offers an opportunity to explore nature, get some fresh air, and meet others in the community. All ages and fitness levels welcome!",
+    "startTime": "2025-03-12T09:00:00",
+    "endTime": "2025-03-12T12:00:00",
+    "location": "Epping Forest, Essex",
     "status": "live",
-    "interestedCount": 4,
-    "timeZone": "Europe/London",
+    "interestedCount": 3,
     "attendees": [
       {
         "user": {
-          "firstName": "Alice",
-          "lastName": "Johnson",
+          "firstName": "Jordan",
+          "lastName": "King",
           "email": "email3@example.com",
           "confirmEmail": "email3@example.com"
         }
       },
       {
         "user": {
-          "firstName": "Bob",
-          "lastName": "Williams",
+          "firstName": "Leah",
+          "lastName": "Parker",
           "email": "email4@example.com",
           "confirmEmail": "email4@example.com"
         }
       },
       {
         "user": {
-          "firstName": "Charlie",
+          "firstName": "Mike",
           "lastName": "Davis",
           "email": "email5@example.com",
           "confirmEmail": "email5@example.com"
         }
-      },
-      {
-        "user": {
-          "firstName": "David",
-          "lastName": "Moore",
-          "email": "email6@example.com",
-          "confirmEmail": "email6@example.com"
-        }
       }
-    ]
+    ],
+    "image": "https://images.squarespace-cdn.com/content/v1/5b1d5d6585ede15dd5e5158e/1702060052071-IDBUENSFU94TNDT22YEO/Epping+Forest+Walk+Hike+near+London.jpg?format=2500w"
   },
   {
-    "id": 3,
-    "title": "International Dance Festival",
-    "description": "A celebration of global dance styles! Experience performances and workshops from top dancers around the world.",
-    "startTime": "2024-12-17T16:00:00",
-    "endTime": "2024-12-17T18:00:00",
-    "location": "Grand Theater, San Francisco",
-    "image": "https://www.kalamatamediterraneanvillas.gr/images/destinations/cultural-agenda/jul-intro-kalamata-international-dance-festival.jpg",
-    "status": "canceled",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "Eva",
-          "lastName": "Taylor",
-          "email": "email7@example.com",
-          "confirmEmail": "email7@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Frank",
-          "lastName": "Anderson",
-          "email": "email8@example.com",
-          "confirmEmail": "email8@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 4,
-    "title": "Yoga for Beginners Workshop",
-    "description": "A calming and introductory workshop to yoga. Learn the basics of breathing, stretching, and meditation in a peaceful environment.",
-    "startTime": "2024-12-12T10:00:00",
-    "endTime": "2024-12-12T12:00:00",
-    "location": "Green Lotus Yoga Studio, Los Angeles",
-    "image": "https://images.squarespace-cdn.com/content/v1/5d07a02a9941ab0001100b96/0ed208cc-c7e1-4137-b3a0-67143804a845/beginners+yoga+workshop.PNG",
+    "id": 2,
+    "title": "Family Fun Day: Community Sports & Games",
+    "description": "A family-friendly event featuring a day full of free sports activities, games, and team-building exercises. From football and badminton to tug-of-war and sack races, there’s something for everyone to enjoy. It’s a day of fun, fitness, and community spirit.",
+    "startTime": "2025-06-06T12:00:00",
+    "endTime": "2025-06-06T16:00:00",
+    "location": "Clapham Common, Lambeth",
     "status": "live",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
+    "interestedCount": 3,
     "attendees": [
       {
         "user": {
-          "firstName": "Grace",
-          "lastName": "Lee",
-          "email": "email9@example.com",
-          "confirmEmail": "email9@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Henry",
-          "lastName": "Martinez",
-          "email": "email10@example.com",
-          "confirmEmail": "email10@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 5,
-    "title": "Christmas Charity Gala",
-    "description": "Join us for an elegant evening of fine dining, music, and fundraising for charity. All proceeds go to children’s hospitals.",
-    "startTime": "2024-12-07T19:30:00",
-    "endTime": "2024-12-07T23:00:00",
-    "location": "The Ritz-Carlton, Los Angeles",
-    "image": "https://blog.toornament.com/wp-content/uploads/2019/12/1132.jpg",
-    "status": "live",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "Isla",
-          "lastName": "Harris",
-          "email": "email11@example.com",
-          "confirmEmail": "email11@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Jack",
-          "lastName": "Young",
-          "email": "email12@example.com",
-          "confirmEmail": "email12@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 6,
-    "title": "Art Exhibition: Future Visions",
-    "description": "Explore contemporary art at this unique exhibition featuring the works of emerging artists who are redefining art for the future.",
-    "startTime": "2024-11-18T17:00:00",
-    "endTime": "2024-11-18T19:00:00",
-    "location": "Modern Art Gallery, Chicago",
-    "image": "https://www.mori.art.museum/files/exhibitions/2019/08/26/future_art_3.jpg",
-    "status": "canceled",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "Lily",
-          "lastName": "Wilson",
-          "email": "email13@example.com",
-          "confirmEmail": "email13@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Mason",
-          "lastName": "Dunn",
-          "email": "email14@example.com",
-          "confirmEmail": "email14@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Virtual Reality Gaming Tournament",
-    "description": "Compete in the first-ever global Virtual Reality gaming tournament. Test your skills and win amazing prizes!",
-    "startTime": "2024-12-15T14:00:00",
-    "endTime": "2024-12-15T16:00:00",
-    "location": "Online (Streaming on Twitch)",
-    "image": "https://static.vecteezy.com/system/resources/thumbnails/049/157/863/original/pro-cyber-sport-gamer-relaxing-playing-games-using-vr-headset-late-night-virtual-shooter-game-championship-in-cyberspace-esports-player-performing-on-pc-during-gaming-tournament-video.jpg",
-    "status": "live",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "Nina",
-          "lastName": "Adams",
-          "email": "email15@example.com",
-          "confirmEmail": "email15@example.com"
-        }
-      },
-      {
-        "user": {
-          "firstName": "Oscar",
-          "lastName": "Clark",
+          "firstName": "Emma",
+          "lastName": "Cole",
           "email": "email16@example.com",
           "confirmEmail": "email16@example.com"
         }
-      }
-    ]
-  },
-  {
-    "id": 8,
-    "title": "Outdoor Movie Night: The Lion King",
-    "description": "Watch the classic animated film under the stars! Bring a blanket, your loved ones, and enjoy a great outdoor cinema experience.",
-    "startTime": "2024-11-22T19:00:00",
-    "endTime": "2024-11-22T21:00:00",
-    "location": "Sunset Park, Brooklyn",
-    "image": "https://iamthemaven.com/wp-content/uploads/2017/08/228463C10a-lk_ks17p1.jpg",
-    "status": "expired",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
+      },
       {
         "user": {
-          "firstName": "Paul",
-          "lastName": "Scott",
+          "firstName": "Ravi",
+          "lastName": "Singh",
           "email": "email17@example.com",
           "confirmEmail": "email17@example.com"
         }
       },
       {
         "user": {
-          "firstName": "Quinn",
-          "lastName": "Baker",
+          "firstName": "Lily",
+          "lastName": "Green",
           "email": "email18@example.com",
           "confirmEmail": "email18@example.com"
         }
       }
-    ]
+    ],
+    "image": "https://www.creativecenter.brother/-/media/creativecenter/contents/home/home/home-category/learning-activities/games/find-sports-balls-sports-day/find-sports-balls-sports-day-learning-activities-l-uk.ashx"
   },
   {
-    "id": 9,
-    "title": "Holiday Craft Market",
-    "description": "Shop for unique handmade crafts, ornaments, and gifts just in time for the holiday season. Support local artisans and find that perfect gift!",
-    "startTime": "2024-12-03T09:00:00",
-    "endTime": "2024-12-03T11:00:00",
-    "location": "Downtown Arts District, Los Angeles",
-    "image": "https://hagadone.media.clients.ellingtoncms.com/img/photos/2023/11/13/Craft_fairs_t1170.jpg?5cc718665ab672dba93d511ab4c682bb370e5f86",
+    "id": 3,
+    "title": "Outdoor Movie Night: The Lion King",
+    "description": "Watch the classic animated film under the stars! Bring a blanket, your loved ones, and enjoy a great outdoor cinema experience.",
+    "startTime": "2025-04-25T14:00:00",
+    "endTime": "2025-04-25T16:00:00",
+    "location": "Brick Lane Market, Tower Hamlets",
     "status": "live",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
+    "interestedCount": 3,
     "attendees": [
       {
         "user": {
-          "firstName": "Riley",
-          "lastName": "Morris",
+          "firstName": "Tariq",
+          "lastName": "Ali",
+          "email": "email14@example.com",
+          "confirmEmail": "email14@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Jade",
+          "lastName": "King",
+          "email": "email15@example.com",
+          "confirmEmail": "email15@example.com"
+        }
+      }
+    ],
+    "image": "https://www.projectorreviews.com/wp-content/uploads/2018/08/Outdoor-Movie-Night-Inspiration-Kids-1-1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Outdoor Yoga & Mindfulness in the Park",
+    "description": "Start your Saturday morning with a calming yoga and mindfulness session in the park. Whether you’re new to yoga or an experienced practitioner, this is an inclusive space to relax, stretch, and reconnect with nature. All abilities welcome.",
+    "startTime": "2025-05-16T10:00:00",
+    "endTime": "2025-05-16T11:30:00",
+    "location": "Victoria Park, Tower Hamlets",
+    "status": "live",
+    "interestedCount": 3,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Chloe",
+          "lastName": "Simmons",
+          "email": "email9@example.com",
+          "confirmEmail": "email9@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Luke",
+          "lastName": "Green",
+          "email": "email10@example.com",
+          "confirmEmail": "email10@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Sandra",
+          "lastName": "Lee",
+          "email": "email11@example.com",
+          "confirmEmail": "email11@example.com"
+        }
+      }
+    ],
+    "image": "https://img.freepik.com/premium-photo/outdoor-yoga-class-park-sunny-day_641503-94410.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Waltham Forest Community Garden: Volunteer Day",
+    "description": "Help transform a local green space into a thriving community garden! Whether you're an experienced gardener or just want to get involved, there’s a role for you. Come down and meet your neighbours while contributing to a greener, more sustainable local environment.",
+    "startTime": "2025-01-23T11:00:00",
+    "endTime": "2025-01-23T15:00:00",
+    "location": "Waltham Forest Community Garden, Walthamstow",
+    "status": "live",
+    "interestedCount": 2,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Jack",
+          "lastName": "Moore",
+          "email": "email12@example.com",
+          "confirmEmail": "email12@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Amelia",
+          "lastName": "Harris",
+          "email": "email13@example.com",
+          "confirmEmail": "email13@example.com"
+        }
+      }
+    ],
+    "image": "https://www.journee-mondiale.com/en/wp-content/uploads/2024/11/msg_01ACjErrLeCcim97AXf7Ue2A.webp"
+  },
+  {
+    "id": 6,
+    "title": "Cooking Class: Plant-Based London",
+    "description": "This interactive cooking class explores plant-based cooking with locally sourced ingredients. Participants will learn new recipes, cooking techniques, and how to create delicious, healthy meals that are good for both the body and the planet.",
+    "startTime": "2025-02-18T18:00:00",
+    "endTime": "2025-02-18T20:00:00",
+    "location": "The Cookery School, Chelsea",
+    "status": "live",
+    "interestedCount": 3,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Claire",
+          "lastName": "Walker",
+          "email": "email22@example.com",
+          "confirmEmail": "email22@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "James",
+          "lastName": "Lee",
+          "email": "email23@example.com",
+          "confirmEmail": "email23@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Neha",
+          "lastName": "Kumar",
+          "email": "email24@example.com",
+          "confirmEmail": "email24@example.com"
+        }
+      }
+    ],
+    "image": "https://static.wixstatic.com/media/a774a7_568aa8faafd4407489adbbd853ccd730~mv2.jpg/v1/fill/w_568,h_356,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/a774a7_568aa8faafd4407489adbbd853ccd730~mv2.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Sustainable Fashion Swap",
+    "description": "Tired of your wardrobe? This sustainable fashion swap event encourages you to bring gently used clothing to exchange with others. A great way to refresh your wardrobe sustainably while meeting like-minded individuals and supporting a circular fashion economy.",
+    "startTime": "2025-05-20T12:00:00",
+    "endTime": "2025-05-20T15:00:00",
+    "location": "Kings Cross, Camden",
+    "status": "live",
+    "interestedCount": 2,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Hannah",
+          "lastName": "Williams",
+          "email": "email25@example.com",
+          "confirmEmail": "email25@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Zoe",
+          "lastName": "Lewis",
+          "email": "email26@example.com",
+          "confirmEmail": "email26@example.com"
+        }
+      }
+    ],
+    "image": "https://media.istockphoto.com/id/1249789752/vector/swap-party-illustration-with-clothes-and-women.jpg?s=612x612&w=0&k=20&c=Q-t4dp0yPU4CpWX-y4weCiIbYU4al7KoJAwPWsMisic="
+  },
+  {
+    "id": 8,
+    "title": "Art Jam: Local Artists Meetup",
+    "description": "Whether you're a painter, sculptor, or photographer, this event is for local artists to come together, create, and collaborate. It’s all about bringing creativity into the community while sharing ideas and techniques. No experience required, just an open mind and some inspiration!",
+    "startTime": "2025-04-05T15:00:00",
+    "endTime": "2025-04-05T17:00:00",
+    "location": "Leytonstone Library, Waltham Forest",
+    "status": "live",
+    "interestedCount": 3,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Oliver",
+          "lastName": "Gray",
+          "email": "email6@example.com",
+          "confirmEmail": "email6@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Mia",
+          "lastName": "Roberts",
+          "email": "email7@example.com",
+          "confirmEmail": "email7@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Samir",
+          "lastName": "Patel",
+          "email": "email8@example.com",
+          "confirmEmail": "email8@example.com"
+        }
+      }
+    ],
+    "image": "https://images.squarespace-cdn.com/content/v1/5f0df557ba2ebe5c520d3bd7/1672707357121-FYQ6FYDGKWX44MYCPGBR/Artist+Meetup-generic.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Quit Right Waltham Forest: Support for Smokers",
+    "description": "A friendly and supportive community session offering advice, resources, and a space to talk about quitting smoking. Whether you're trying to quit or just want more information, this event provides helpful tools and support from local health professionals.",
+    "startTime": "2025-02-25T10:00:00",
+    "endTime": "2025-02-25T12:00:00",
+    "location": "Walthamstow Family Hub, Waltham Forest",
+    "status": "live",
+    "interestedCount": 2,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Sarah",
+          "lastName": "Thompson",
+          "email": "email1@example.com",
+          "confirmEmail": "email1@example.com"
+        }
+      },
+      {
+        "user": {
+          "firstName": "Emily",
+          "lastName": "Collins",
+          "email": "email2@example.com",
+          "confirmEmail": "email2@example.com"
+        }
+      }
+    ],
+    "image": "https://www.qmul.ac.uk/media/qmul/media/2019/smoking_640.jpg"
+  },
+
+  {
+    "id": 10,
+    "title": "Local Book Swap & Reading Circle",
+    "description": "Bring along your pre-loved books and swap them with others at this cozy event. Afterward, join a relaxed reading circle where participants can share their favourite reads and recommendations. A perfect chance to meet fellow book lovers and engage in stimulating conversation.",
+    "startTime": "2025-03-30T14:00:00",
+    "endTime": "2025-03-30T16:00:00",
+    "location": "Southbank Centre, Lambeth",
+    "status": "live",
+    "interestedCount": 3,
+    "attendees": [
+      {
+        "user": {
+          "firstName": "Olivia",
+          "lastName": "Baker",
           "email": "email19@example.com",
           "confirmEmail": "email19@example.com"
         }
       },
       {
         "user": {
-          "firstName": "Sophia",
-          "lastName": "Garcia",
+          "firstName": "Tom",
+          "lastName": "Edwards",
           "email": "email20@example.com",
           "confirmEmail": "email20@example.com"
-        }
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "title": "Music Concert: Rock Legends",
-    "description": "Join us for an unforgettable night with some of the biggest rock legends of all time. Live music, great vibes, and an epic crowd.",
-    "startTime": "2024-12-05T19:30:00",
-    "endTime": "2024-12-05T23:00:00",
-    "location": "Madison Square Garden, NYC",
-    "image": "https://www.beat-magazine.co.uk/wp-content/uploads/2024/04/rock-music-history.jpeg",
-    "status": "live",
-    "interestedCount": 2,
-    "timeZone": "Europe/London",
-    "attendees": [
-      {
-        "user": {
-          "firstName": "Tom",
-          "lastName": "Hughes",
-          "email": "email21@example.com",
-          "confirmEmail": "email21@example.com"
         }
       },
       {
         "user": {
-          "firstName": "Ursula",
-          "lastName": "White",
-          "email": "email22@example.com",
-          "confirmEmail": "email22@example.com"
+          "firstName": "Sophie",
+          "lastName": "Bennett",
+          "email": "email21@example.com",
+          "confirmEmail": "email21@example.com"
         }
       }
-    ]
+    ],
+    "image": "https://www.shutterstock.com/image-vector/books-exchange-crossing-concept-hands-600nw-2275010403.jpg"
   }
 ]
