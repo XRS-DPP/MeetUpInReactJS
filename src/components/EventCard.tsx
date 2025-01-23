@@ -36,7 +36,7 @@ export const EventCard = ({ event, index }: Props) => {
         <img
           src={event.image}
           alt="event image"
-          className="md:ml-2 md:w-[36%] md: aspect-video rounded-lg w-full mb-1"
+          className="md:ml-2 md:w-[36%] md: aspect-video rounded-lg w-full mb-2"
         ></img>
       </div>
 

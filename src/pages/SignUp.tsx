@@ -1,8 +1,8 @@
 import { FormEvent, useState, useRef } from 'react';
 
 const SignUp = () => {
-  const [errMsg, setErrMsg] = useState('');
-  const [input, setInput] = useState({ email: '', password: '', userName: '' });
+  const [errMsg] = useState('');
+  const [input] = useState({ email: '', password: '', userName: '' });
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };

@@ -5,7 +5,6 @@ const MainBanner = () => {
         Our community is all about connection. Whether you’re new or have lived
         here for years, there's always a place for you. From casual meetups to
         volunteer events, we bring people together to share, learn, and grow.
-        Let’s connect, share, and grow together!
       </p>
       <div className="hidden md:block md:w-[10%]" />
       <div className="sm: px-3 flex-shrink-0 w-full md:w-[45%] h-[30vh] flex justify-center pr-2">
