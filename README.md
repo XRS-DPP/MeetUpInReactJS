@@ -51,8 +51,6 @@ Before you can run or contribute to this project, make sure you have node instal
    npm run dev
    ```
 
-Node.js: Minimum version v20.18.1
-
 ## **Contributing**
 If you have a suggestion that would make this better, please fork the repo and create a pull request. Thanks!
 1. Fork the repository
@@ -63,3 +61,6 @@ If you have a suggestion that would make this better, please fork the repo and c
 6. Commit your changes (git commit -m 'Add some AmazingFeature')
 7. Push your changes to the branch(git push origin feature/AmazingFeature)
 8. Submit a pull request
+
+
+#### Node.js: Minimum version v20.18.1
