@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-import EventList from './components/EventList';
+import EventList from './pages/EventList';
 import EventPage from './pages/EventPage';
 import Header from './components/Header';
 import { Login } from './pages/Login';

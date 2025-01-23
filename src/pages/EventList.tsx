@@ -1,5 +1,5 @@
-import { EventCard } from './EventCard';
-import Footer from './Footer';
+import { EventCard } from '../components/EventCard';
+import Footer from '../components/Footer';
 
 type User = {
   firstName: string;
