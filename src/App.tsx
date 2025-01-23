@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="w-full px-4 md:px-8">
-      <div className="flex flex-grow flex-col justify-center min-h-screen">
+      <div className="flex flex-grow flex-col  min-h-screen">
         <Header></Header>
         <main className="w-full md:max-w-[80%] mx-auto">
           <Routes>
