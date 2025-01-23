@@ -19,22 +19,24 @@ type Props = {
 export const EventCard = ({ event, index }: Props) => {
   return (
     <div className="p-3 w-full border-b-2 border-b-gray-200 font-Poppins">
-      <div key={index} className="flex items-start">
+      <div
+        key={index}
+        className="md:flex-row md:flex  md:items-start flex-col-reverse flex"
+      >
         <div className="flex-1">
-          <p className="text-xs  text-orange-500">
+          <p className="text-xs text-orange-500">
             {format(new Date(event.startTime), 'EEEE, d LLL H:00')}
           </p>
           <p className="font-medium text-xs">{event.title}</p>
-          <p className="line-clamp-2 text-xxs leading-relaxed mt-2">
+          <p className="line-clamp-2 text-xxs leading-relaxed md:mt-2">
             {event.description}
           </p>
-          <p className="text-xxs mt-2">@ {event.location}</p>
+          <p className="text-xxs md:mt-2">@ {event.location}</p>
         </div>
-
         <img
           src={event.image}
           alt="event image"
-          className="ml-2 w-[36%] aspect-video rounded-lg"
+          className="md:ml-2 md:w-[36%] md: aspect-video rounded-lg w-full mb-1"
         ></img>
       </div>
 
