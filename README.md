@@ -48,7 +48,7 @@ Before you can run or contribute to this project, make sure you have node instal
    ```
 5. Start the project:
    ```sh
-   npm start
+   npm run dev
    ```
 
 Node.js: Minimum version v20.18.1
