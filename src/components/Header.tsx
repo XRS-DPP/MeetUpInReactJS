@@ -1,14 +1,29 @@
 import { CirclePlus, Menu } from 'lucide-react';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/Auth';
 
 const Header = () => {
   const { auth, setAuth } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setMenuOpen((prevState) => !prevState);
   };
+
   const handleLogOut = () => {
     setAuth(false);
     setMenuOpen(false);
@@ -81,7 +96,8 @@ const Header = () => {
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
             menuOpen ? 'block' : 'hidden'
-          } absolute top-16 left-0 w-full bg-white p-4 z-50`}
+          } absolute top-16 left-0 w-full bg-secodary text-white px-3 py-4 z-50 font-semibold`}
+          ref={menuRef}
         >
           <div className="flex flex-col">
             <Link
