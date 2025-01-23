@@ -22,20 +22,23 @@ type FeaturedEventsProps = { featuredEvents: Event[] };
 
 const FeaturedEvents = ({ featuredEvents }: FeaturedEventsProps) => {
   return (
-    <div>
-      {featuredEvents.map((event: Event, index: number) => {
-        return (
-          <div>
-            <img
-              src={event.image}
-              alt="event image"
-              className="ml-2 w-[36%] aspect-video"
-            ></img>
-            <p className="line-clamp-2 text-xxs">{event.description}</p>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <h2>Featured Events</h2>
+      <div className="flex items-center justify-between flex-wrap p-3">
+        {featuredEvents.map((event: Event, index: number) => {
+          return (
+            <div className="flex-grow mr-auto w-[33%]">
+              <img
+                src={event.image}
+                alt="event image"
+                className="aspect-video rounded-lg"
+              ></img>
+              <p className="line-clamp-2 text-xxs mt-2">{event.description}</p>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
