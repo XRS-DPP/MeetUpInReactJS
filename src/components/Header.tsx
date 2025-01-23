@@ -38,13 +38,6 @@ const Header = () => {
         >
           Find Events
         </Link>
-        <Link
-          to="/help"
-          className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
-          onClick={toggleMenu}
-        >
-          Help Center
-        </Link>
         {auth ? (
           <div className="flex items-center space-x-4">
             <Link className="pr-2" to="/events/create" onClick={toggleMenu}>
@@ -75,6 +68,13 @@ const Header = () => {
             </Link>
           </>
         )}
+        <Link
+          to="/help"
+          className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+          onClick={toggleMenu}
+        >
+          Help Center
+        </Link>
       </div>
 
       {menuOpen && (
@@ -90,13 +90,6 @@ const Header = () => {
               onClick={toggleMenu}
             >
               Find Events
-            </Link>
-            <Link
-              to="/help"
-              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
-              onClick={toggleMenu}
-            >
-              Help Center
             </Link>
             {auth ? (
               <>
@@ -135,6 +128,13 @@ const Header = () => {
                 </Link>
               </>
             )}
+            <Link
+              to="/help"
+              className="text-primary text-xs font-Poppins p-2 hover:text-white hover:bg-secodary hover:rounded-lg"
+              onClick={toggleMenu}
+            >
+              Help Center
+            </Link>
           </div>
         </div>
       )}
