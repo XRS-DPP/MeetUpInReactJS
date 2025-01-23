@@ -15,7 +15,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center p-3 border-b-2 relative mt-4 md:my-10">
+    <div className="flex justify-between items-center px-3 py-1 border-b-2 relative mt-4 md:my-10">
       <Link
         to="/events"
         className="mr-auto text-secodary font-bold tracking-widest font-Poppins text-m "
