@@ -2,7 +2,7 @@
 MeetUpNow makes it easy for community leaders to create and share events, and for members to stay in the loop. Whether you’re looking to join a local event, RSVP, or add it straight to your Google Calendar, everything’s right at your fingertips. It's a simple way to stay connected with what’s happening in your community—no hassle, just a few clicks.
 
 ## __Link To the Hosted Version__
-[https://xiaoru-sun.github.io/MeetUpInReactJS/](https://xrs-dpp.github.io/MeetUpInReactJS/)
+https://xrs-dpp.github.io/MeetUpInReactJS/
 
 ## __Introduction__:
 Features:
